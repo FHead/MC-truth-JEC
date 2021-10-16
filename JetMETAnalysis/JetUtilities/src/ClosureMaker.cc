@@ -126,7 +126,7 @@ void ClosureMaker::openOutputFile() {
     //
     // Open/create the output directory and file
     //   
-    TString ofname = Form("%s/ClosureVs%s.root",outputDir.Data(),getVariableTitleString(var).c_str());
+    TString ofname = Form("%s/ClosureVs%s_%s.root",outputDir.Data(),getVariableTitleString(var).c_str(), alg.Data());
     if(!flavor.IsNull()) ofname = Form("%s/ClosureVs%s_%s.root",outputDir.Data(),
                                        getVariableTitleString(var).c_str(),flavor.Data());
     if(!outputFilename.IsNull()) ofname = Form("%s/%s",outputDir.Data(),outputFilename.Data());
@@ -144,7 +144,7 @@ void ClosureMaker::makeLines() {
     pair<int,int> min_max;
     //if(var.EqualTo("pt",TString::kIgnoreCase)) {
     if(var == VARIABLES::refpt || var == VARIABLES::jtpt || var == VARIABLES::ptclpt) {
-        min_max = make_pair(0,5000);
+        min_max = make_pair(0,6500);
     }
     //else if(var.EqualTo("eta",TString::kIgnoreCase)) {
     else if(var == VARIABLES::refeta || var == VARIABLES::jteta) {
@@ -310,7 +310,9 @@ void ClosureMaker::etaClosureMergedPtBins(TDirectoryFile* idir) {
       name = Form("ClosureVsJetEta_MultiBin_RefPt%sto%s","30",Pt[NPtBins]);
     }
     else {
-      name = Form("ClosureVsJetEta_MultiBin_RefPt%sto%s",Pt[0],Pt[NPtBins]);
+      RelRspVsJetEtaVsRefPt->GetXaxis()->SetRangeUser(15.,10000.); //ak8
+//      name = Form("ClosureVsJetEta_MultiBin_RefPt%sto%s",Pt[0],Pt[NPtBins]);
+	name = Form("ClosureVsJetEta_MultiBin_RefPt%dto%d",15,10000); //ak8
     }
     TH2F* RelRspVsJetEta = (TH2F*)(RelRspVsJetEtaVsRefPt->Project3D("zyoe"));
     hClosure.push_back(new TH1F(name,name,NETA,veta));
@@ -385,10 +387,10 @@ void ClosureMaker::loopOverBins(TH2F* hvar, unsigned int iVarBin) {
                 continue;
             }
         }
-        else if(h.back()->GetEntries()<=4 && h.back()->GetEntries()>1) {
+        /*else if(h.back()->GetEntries()<=4 && h.back()->GetEntries()>1) {	//do not show bins with less than 5 events
             hClosure.back()->SetBinContent(ibin+1,h.back()->GetMean());
             hClosure.back()->SetBinError(ibin+1,h.back()->GetMeanError());
-        }
+        }*/
         else {
             continue;
         }
@@ -459,8 +461,8 @@ void ClosureMaker::makeCanvases() {
         if(var == VARIABLES::refpt || var == VARIABLES::jtpt || var == VARIABLES::ptclpt) {
             if(TString(alg).Contains("pf",TString::kIgnoreCase) ||
          TString(alg).Contains("puppi",TString::kIgnoreCase)) {
-                frame->GetXaxis()->SetLimits(XminPF[ih],Xmax[ih]);
-                hClosure[ih]->GetXaxis()->SetLimits(XminPF[ih],Xmax[ih]);
+                frame->GetXaxis()->SetLimits(15.,Xmax[ih]); //XminPF[ih],Xmax[ih] ak8
+                hClosure[ih]->GetXaxis()->SetLimits(15.,Xmax[ih]);  //XminPF[ih],Xmax[ih] ak8
             }
             else {
                 frame->GetXaxis()->SetLimits(XminCalo[ih],Xmax[ih]);
@@ -482,11 +484,16 @@ void ClosureMaker::makeCanvases() {
         }
         frame->GetXaxis()->SetMoreLogLabels();
         frame->GetXaxis()->SetNoExponent();
-        frame->GetYaxis()->SetRangeUser(0.95,1.05);
-        //frame->GetYaxis()->SetRangeUser(0.35,1.35);
+        //frame->GetYaxis()->SetRangeUser(0.8,1.10);
+        frame->GetYaxis()->SetRangeUser(0.92,1.08);
         //frame->GetYaxis()->SetRangeUser(0.00,1.3);
         frame->GetXaxis()->SetTitle(getVariableAxisTitleString(var).c_str());
         frame->GetYaxis()->SetTitle("Response");
+	frame->GetXaxis()->SetTitle("#eta");
+	frame->GetXaxis()->SetLabelSize(0.04);
+    	frame->GetYaxis()->SetLabelSize(0.04);
+    	frame->GetXaxis()->SetTitleSize(0.055);
+    	frame->GetYaxis()->SetTitleSize(0.055);
         canvases_legends.push_back(make_pair(tdrCanvas(name,frame,14,11,true),
                                              tdrLeg(0.58,0.16,0.9,0.4)));
         if((var == VARIABLES::refpt || var == VARIABLES::jtpt || var == VARIABLES::ptclpt) && ih<3)
@@ -495,8 +502,9 @@ void ClosureMaker::makeCanvases() {
         //
         // Format and draw the pave
         //
-        pave.push_back(tdrText(0.5,0.75,0.93,1-gPad->GetTopMargin()-0.045*(1-gPad->GetTopMargin()-gPad->GetBottomMargin()),31));
+        pave.push_back(tdrText(0.5,0.7,0.93,1-gPad->GetTopMargin()-0.045*(1-gPad->GetTopMargin()-gPad->GetBottomMargin()),31)); //ylow=0.75
         pave.back()->AddText("QCD Monte Carlo");
+	//pave.back()->AddText("non-APV UL 2016");
         pave.back()->AddText(JetInfo::get_legend_title(string(alg)).c_str());
         if(var == VARIABLES::refpt || var == VARIABLES::jtpt || var == VARIABLES::ptclpt) {
             pave.back()->AddText(detector_regions_eta[ih]);
@@ -507,11 +515,13 @@ void ClosureMaker::makeCanvases() {
                     pave.back()->AddText("30 GeV < p_{T}^{ptcl} < "+TString(Pt[NPtBins])+" GeV");
                 }
                 else {
-                    pave.back()->AddText(TString(Pt[0])+" GeV < p_{T}^{ptcl} < "+TString(Pt[NPtBins])+" GeV");
+//                  pave.back()->AddText(TString(Pt[0])+" GeV < p_{T}^{ptcl} < "+TString(Pt[NPtBins])+" GeV");
+//		    pave.back()->AddText("15 GeV < p_{T}^{ptcl} < 10000 GeV");
+	            pave.back()->AddText("p_{T}^{Gen} > 15 GeV"); //ak8
                 }
             }
             else
-                pave.back()->AddText(TString(Pt[ih])+" GeV < p_{T}^{ptcl} < "+TString(Pt[ih+1])+" GeV");
+                pave.back()->AddText(TString(Pt[ih])+" GeV < p_{T}^{Gen} < "+TString(Pt[ih+1])+" GeV");
         }
         pave.back()->Draw("same");
 
@@ -543,7 +553,7 @@ void ClosureMaker::makeMergedCanvas() {
     TH1D* frame = new TH1D();
     if(TString(alg).Contains("pf",TString::kIgnoreCase) ||
      TString(alg).Contains("puppi",TString::kIgnoreCase))
-        frame->GetXaxis()->SetLimits(XminPF[0],Xmax[0]);
+        frame->GetXaxis()->SetLimits(15.,6500.); //XminPF[0],Xmax[0] ak8
     else
         frame->GetXaxis()->SetLimits(XminCalo[0],Xmax[0]);
     frame->GetXaxis()->SetMoreLogLabels();
@@ -551,14 +561,21 @@ void ClosureMaker::makeMergedCanvas() {
   pair<double,double> range = determineCanvasRange(frame->GetXaxis()->GetXmin(),frame->GetXaxis()->GetXmax());
     //frame->GetYaxis()->SetRangeUser(0.95,1.05);
     //frame->GetYaxis()->SetRangeUser(0.35,1.35);
-  frame->GetYaxis()->SetRangeUser(range.first,range.second);
+    frame->GetYaxis()->SetRangeUser(range.first,range.second);
+    frame->GetYaxis()->SetRangeUser(0.92,1.08);
     frame->GetXaxis()->SetTitle(getVariableAxisTitleString(var).c_str());
     frame->GetYaxis()->SetTitle("Response");
+    frame->GetXaxis()->SetTitle("p_{T}^{Gen} (GeV)");
+    frame->GetXaxis()->SetLabelSize(0.04);
+    frame->GetYaxis()->SetLabelSize(0.04);
+    frame->GetXaxis()->SetTitleSize(0.055);
+    frame->GetYaxis()->SetTitleSize(0.055);
     canvases_legends.push_back(make_pair(tdrCanvas(name,frame,14,11,true),
                                          tdrLeg(0.58,0.16,0.9,0.4)));
     canvases_legends.back().first->GetPad(0)->SetLogx();
     pave.push_back(tdrText(0.5,0.75,0.93,1-gPad->GetTopMargin()-0.045*(1-gPad->GetTopMargin()-gPad->GetBottomMargin()),31));
 
+    
     //
     // Draw the guide lines
     //
@@ -574,12 +591,16 @@ void ClosureMaker::makeMergedCanvas() {
     for(unsigned int ih=0; ih<hClosure.size(); ih++) {
         if(TString(alg).Contains("pf",TString::kIgnoreCase) ||
        TString(alg).Contains("puppi",TString::kIgnoreCase)) {
-            hClosure[ih]->GetXaxis()->SetLimits(XminPF[ih],Xmax[ih]);
-            hClosure[ih]->GetXaxis()->SetRangeUser(XminPF[ih],Xmax[ih]);
+            //hClosure[ih]->GetXaxis()->SetLimits(XminPF[ih],Xmax[ih]);
+            //hClosure[ih]->GetXaxis()->SetRangeUser(XminPF[ih],Xmax[ih]);
+	    hClosure[ih]->GetXaxis()->SetRangeUser(15.,6500.); //ak8
+	    hClosure[ih]->GetYaxis()->SetRangeUser(0.92,1.08);
         }
         else {
-            hClosure[ih]->GetXaxis()->SetLimits(XminCalo[ih],Xmax[ih]);
-            hClosure[ih]->GetXaxis()->SetRangeUser(XminCalo[ih],Xmax[ih]);
+            //hClosure[ih]->GetXaxis()->SetLimits(XminCalo[ih],Xmax[ih]);
+            //hClosure[ih]->GetXaxis()->SetRangeUser(XminCalo[ih],Xmax[ih]);
+	    hClosure[ih]->GetXaxis()->SetRangeUser(30.,6500.);
+	    hClosure[ih]->GetYaxis()->SetRangeUser(0.92,1.08);
         }
         hClosure[ih]->SetStats(kFALSE);
         tdrDraw(hClosure[ih],"EP",closureShapes[ih],
@@ -591,6 +612,7 @@ void ClosureMaker::makeMergedCanvas() {
     // Format the pave and draw
     //
     pave.back()->AddText("QCD Monte Carlo");
+    //pave.back()->AddText("non-APV UL 2016");
     pave.back()->AddText(JetInfo::get_legend_title(string(alg)).c_str());
     pave.back()->Draw("same");
 

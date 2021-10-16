@@ -12,6 +12,16 @@
 // it will produce validation plots as well.
 ///////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////
+//
+// Update from Ilias
+// The code as is produces histograms with the corrections vs pT and eta
+// There are 11 lines with the comment "for fixed Pt" that are commented out
+// If you remove their comment out and instead comment out their above line then the corrections vs rho (for fixed pt) instead of pt will
+// be produced
+//
+///////////////////////////////////////////////////////////////////
+
 #include "JetMETAnalysis/JetUtilities/interface/Style.h"
 #include "JetMETAnalysis/JetUtilities/interface/CommandLine.h"
 #include "JetMETAnalysis/JetUtilities/interface/JetInfo.hh"
@@ -170,7 +180,7 @@ void analyzeAlgo(TString algo, CommandLine & cl){
   bool            combineAlgs  = cl.getValue<bool>     ("combineAlgs",          false);
   TString         flavor       = cl.getValue<TString>  ("flavor",                  "");
   string          outputDir    = cl.getValue<string>   ("outputDir",         "images");
-  vector<TString> outputFormat = cl.getVector<TString> ("outputFormat", ".png:::.eps");
+  vector<TString> outputFormat = cl.getVector<TString> ("outputFormat",        ".png");
   bool            tdr          = cl.getValue<bool>     ("tdr",                   true);
   double          CMEnergy     = cl.getValue<double>   ("CMEnergy",             13000);
 
@@ -305,42 +315,52 @@ TCanvas * getCorrectionVsEtaCanvas(TString algo, FactorizedJetCorrector * jetCor
 
  //Create canvas vs eta for different pts  
   vector<double> PtVals;
-  PtVals.push_back(0.00001);
+/*  PtVals.push_back(0.00001);
   PtVals.push_back(0.1);
   PtVals.push_back(1);
   PtVals.push_back(5);
-  PtVals.push_back(7);
-  PtVals.push_back(10);
-  PtVals.push_back(20);
+  PtVals.push_back(8);
+*///PtVals.push_back(5);
+  //PtVals.push_back(10);
+  PtVals.push_back(15);
+  //PtVals.push_back(20);
   PtVals.push_back(30);
-  PtVals.push_back(40);
+  //PtVals.push_back(40);
   PtVals.push_back(50);
-  PtVals.push_back(150);
-  PtVals.push_back(250);
+  //PtVals.push_back(60);
+  //PtVals.push_back(70);
+  //PtVals.push_back(75);
+  PtVals.push_back(100);
+  //PtVals.push_back(150);
+  PtVals.push_back(200);
   PtVals.push_back(500);
+  PtVals.push_back(750);
   PtVals.push_back(1000);
-  PtVals.push_back(1500);
-  PtVals.push_back(2500);
+  //PtVals.push_back(1500);
+  PtVals.push_back(2000);
+  //PtVals.push_back(4000);
 
   //Create the canvas with multiple pads
   TString ss("CorrectionVsEta_Overview");
   ss += suffix;
   TCanvas *ove = new TCanvas(ss,ss,1200,800);
-  ove->Divide(4,4);
+  ove->Divide(3,3);
 
   // loop over all pads
   for (int c = 0; c < ove->GetListOfPrimitives()->GetSize(); c++) {
 
     // just make we don't write the extra pads 
-    if (c <= (int) PtVals.size()){
+    if (c < (int) PtVals.size()){
 
       //Create and fill the histo
       TString hstr; hstr.Form("EtaSF_%d",c);
       TH1F * cc = new TH1F(hstr,hstr,NETA,veta);
       for (int b = 1; b <= cc->GetNbinsX(); b++){
 	jetCorr->setJetPt(PtVals[c]);
+	//jetCorr->setJetPt(fixedRho);	//for fixed Pt
 	jetCorr->setJetEta(cc->GetBinCenter(b));
     jetCorr->setRho(fixedRho);
+    //jetCorr->setRho(PtVals[c]);	//for fixed Pt
     jetCorr->setJetA(TMath::Pi()*TMath::Power(JetInfo(algo).coneSize/10.0,2));
 	double cor = jetCorr->getCorrection();
 	if (std::isnan((double)cor) || std::isinf((double)cor) ){
@@ -362,24 +382,29 @@ TCanvas * getCorrectionVsEtaCanvas(TString algo, FactorizedJetCorrector * jetCor
       cc->GetXaxis()->SetTitleSize(0.058);
       cc->GetXaxis()->SetTitleOffset(0.95);
 
-      cc->GetYaxis()->SetRangeUser(0.70,3.5);
+      cc->GetYaxis()->SetRangeUser(0.90,3.);
 
       //Create a pave indicating the pt 
       TString ptstr;
       if (PtVals[c]<0.1)
-	ptstr.Form("P_{T}=%f",PtVals[c]);
+	ptstr.Form("p_{T}=%f GeV",PtVals[c]);
       else 
-	ptstr.Form("P_{T}=%.1f",PtVals[c]);
-
-      TPaveText * pave = new TPaveText(0.3,0.75,0.8,0.9,"NDC");
-      pave->AddText(algo);
+	ptstr.Form("p_{T}=%.0f GeV",PtVals[c]);
+	//ptstr.Form("#rho=%.0f GeV",PtVals[c]);	//for fixed Pt
+	
+      TPaveText * pave = new TPaveText(0.3,0.7,0.8,0.9,"NDC");
+      //pave->AddText("APV UL 2016");	
+      //pave->AddText(algo);
       pave->AddText(ptstr);      
       pave->SetFillColor(0);
       pave->SetShadowColor(0);
+      pave->SetBorderSize(0);
+      pave->SetTextSize(0.08);
 
       ove->cd(c+1);
-      cc->SetFillColor(30);
-      cc->SetFillStyle(3001);
+      cc->SetLineColor(kRed);	
+      //cc->SetFillColor(30);
+      //cc->SetFillStyle(3001);
       cc->Draw();
       pave->Draw();
 
@@ -733,41 +758,218 @@ vector<TCanvas*> getCorrectionVsEtaComparisonCanvasTDR(vector<TString>& algs, ve
 //---------------------------------------------------------------------
 TCanvas * getCorrectionVsPtCanvas(TString algo, FactorizedJetCorrector * jetCorr, TString suffix) {
 
- //Create canvas vs eta for different pts  
+//edw Create canvas vs eta for different pts  
   vector<double> EtaVals;
-  EtaVals.push_back(-4.8);
-  EtaVals.push_back(-4.0);
-  EtaVals.push_back(-3.2);
-  EtaVals.push_back(-2.4);
+ /* EtaVals.push_back(-4.8);
+
+	  5.191 -4.889 -4.716 -4.538 -4.363 -4.191 -4.013 -3.839 -3.664 
+	 -3.489 -3.314 -3.139 -2.964 -2.853 -2.650 -2.500 -2.322 -2.172 
+	 -2.043 -1.930 -1.830 -1.740 -1.653 -1.566 -1.479 -1.392 -1.305 
+	 -1.218 -1.131 -1.044 -0.957 -0.879 -0.783 -0.696 -0.609 -0.522 
+	 -0.435 -0.348 -0.261 -0.174 -0.087 
+	 +0.000 
+	 +0.087 +0.174 +0.261 +0.348 +0.435 +0.522 +0.609 +0.696 +0.783 
+	 +0.879 +0.957 +1.044 +1.131 +1.218 +1.305 +1.392 +1.479 +1.566 
+	 +1.653 +1.740 +1.830 +1.930 +2.043 +2.172 +2.322 +2.500 +2.650 
+	 +2.853 +2.964 +3.139 +3.314 +3.489 +3.664 +3.839 +4.013 +4.191 
+	 +4.363 +4.538 +4.716 +4.889 +5.191
+*/
+
+/*  EtaVals.push_back(-3.2);
+  EtaVals.push_back(-2.5);
+  EtaVals.push_back(-2.0);
   EtaVals.push_back(-1.6);
+  EtaVals.push_back(-1.2);
   EtaVals.push_back(-0.8);
-  EtaVals.push_back(0);
-  EtaVals.push_back( 0.8);
-  EtaVals.push_back( 1.6);
-  EtaVals.push_back( 2.4);
-  EtaVals.push_back( 3.2);
-  EtaVals.push_back( 4.0);
-  EtaVals.push_back( 4.8);
+  EtaVals.push_back(-0.4);
+  EtaVals.push_back(0.);
+  EtaVals.push_back(0.4);
+  EtaVals.push_back(0.8);
+  EtaVals.push_back(1.2);
+  EtaVals.push_back(1.6);
+  EtaVals.push_back(2.0);
+  EtaVals.push_back(2.5);
+  EtaVals.push_back(3.2);
+*/
+ 
+  EtaVals.push_back(0.02);
+  EtaVals.push_back(0.3);
+  EtaVals.push_back(0.62);
+  EtaVals.push_back(0.98);
+  EtaVals.push_back(1.24);
+  EtaVals.push_back(1.5);
+  EtaVals.push_back(1.8);
+  EtaVals.push_back(2.1);
+  EtaVals.push_back(2.2);
+  EtaVals.push_back(2.4);
+  EtaVals.push_back(2.52);
+  EtaVals.push_back(2.7);
+  EtaVals.push_back(2.9);
+  EtaVals.push_back(3.0);
+  EtaVals.push_back(3.5);
+
+
+/*  EtaVals.push_back(-0.02);
+  EtaVals.push_back(-0.3);
+  EtaVals.push_back(-0.62);
+  EtaVals.push_back(-0.98);
+  EtaVals.push_back(-1.24);
+  EtaVals.push_back(-1.5);
+  EtaVals.push_back(-1.8);
+  EtaVals.push_back(-2.1);
+  EtaVals.push_back(-2.2);
+  EtaVals.push_back(-2.4);
+  EtaVals.push_back(-2.52);
+  EtaVals.push_back(-2.7);
+  EtaVals.push_back(-2.9);
+  EtaVals.push_back(-3.0);
+  EtaVals.push_back(-3.5);
+*/
+/*
++3.139 +3.314 +3.489 +3.664 +3.839 +4.013 +4.191 
+	 +4.363 +4.538 +4.716 +4.889 +5.191
+
+
+*/
+
+
+/*EtaVals.push_back(-4.7);
+EtaVals.push_back(-3.2);
+EtaVals.push_back(-2.5);
+EtaVals.push_back(-2.0);
+EtaVals.push_back(-1.3);
+EtaVals.push_back(0);
+EtaVals.push_back(1.3);
+EtaVals.push_back(2.0);
+EtaVals.push_back(2.5);
+EtaVals.push_back(3.2);
+EtaVals.push_back(4.7);
+*/
+
+
+/*EtaVals.push_back(0);
+EtaVals.push_back(-0.087);
+EtaVals.push_back(-0.174);
+EtaVals.push_back(-0.261);
+EtaVals.push_back(-0.348);
+EtaVals.push_back(-0.435);
+EtaVals.push_back(-0.522);
+EtaVals.push_back(-0.609);
+EtaVals.push_back(-0.696);
+EtaVals.push_back(-0.783);
+EtaVals.push_back(-0.879);
+EtaVals.push_back(-0.957);
+EtaVals.push_back(-1.044);
+EtaVals.push_back(-1.131);
+EtaVals.push_back(-1.218);
+EtaVals.push_back(-1.305);
+EtaVals.push_back(-1.392);
+EtaVals.push_back(-1.479);
+EtaVals.push_back(-1.566);
+EtaVals.push_back(-1.653);
+EtaVals.push_back(-1.740);
+*/
+
+/*EtaVals.push_back(-1.830);
+EtaVals.push_back(-1.930);
+EtaVals.push_back(-2.043);
+EtaVals.push_back(-2.172);
+EtaVals.push_back(-2.322);
+EtaVals.push_back(-2.500);
+EtaVals.push_back(-2.650);
+EtaVals.push_back(-2.853);
+EtaVals.push_back(-2.964);
+EtaVals.push_back(-3.139);
+EtaVals.push_back(-3.314);
+EtaVals.push_back(-3.489);
+EtaVals.push_back(-3.664);
+EtaVals.push_back(-3.839);
+EtaVals.push_back(-4.013);
+EtaVals.push_back(-4.191);
+EtaVals.push_back(-4.363);
+EtaVals.push_back(-4.538);
+EtaVals.push_back(-4.716);
+EtaVals.push_back(-4.889);
+EtaVals.push_back(-5.191);
+*/
+
+/*EtaVals.push_back(0);
+EtaVals.push_back(0.087);
+EtaVals.push_back(0.174);
+EtaVals.push_back(0.261);
+EtaVals.push_back(0.348);
+EtaVals.push_back(0.435);
+EtaVals.push_back(0.522);
+EtaVals.push_back(0.609);
+EtaVals.push_back(0.696);
+EtaVals.push_back(0.783);
+EtaVals.push_back(0.879);
+EtaVals.push_back(0.957);
+EtaVals.push_back(1.044);
+EtaVals.push_back(1.131);
+EtaVals.push_back(1.218);
+EtaVals.push_back(1.305);
+EtaVals.push_back(1.392);
+EtaVals.push_back(1.479);
+EtaVals.push_back(1.566);
+EtaVals.push_back(1.653);
+EtaVals.push_back(1.740);
+*/
+
+/*EtaVals.push_back(1.830);
+EtaVals.push_back(1.930);
+EtaVals.push_back(2.043);
+EtaVals.push_back(2.172);
+EtaVals.push_back(2.322);
+EtaVals.push_back(2.500);
+EtaVals.push_back(2.650);
+EtaVals.push_back(2.853);
+EtaVals.push_back(2.964);
+EtaVals.push_back(3.139);
+EtaVals.push_back(3.314);
+EtaVals.push_back(3.489);
+EtaVals.push_back(3.664);
+EtaVals.push_back(3.839);
+EtaVals.push_back(4.013);
+EtaVals.push_back(4.191);
+EtaVals.push_back(4.363);
+EtaVals.push_back(4.538);
+EtaVals.push_back(4.716);
+EtaVals.push_back(4.889);
+EtaVals.push_back(5.191);
+*/
+
+
+
+
+
+
 
   //Create the canvas with multiple pads
   TString ss("CorrectionVsPt_Overview");
+  //TString ss("CorrectionVsRho_Overview");	//for fixed Pt
   ss += suffix;
   TCanvas *ovp = new TCanvas(ss,ss,1200,800);
+//  ovp->Divide(6,4);
   ovp->Divide(4,4);
 
   // loop over all pads
   for (int c = 0; c < ovp->GetListOfPrimitives()->GetSize(); c++) {
 
     // just make we don't write the extra pads 
-    if (c <= (int) EtaVals.size()){
+    if (c < (int) EtaVals.size()){
 
       //Create and fill the histo
       TString hstr; hstr.Form("PtSF_%d",c);
+      //TString hstr; hstr.Form("RhoSF_%d",c);	//for fixed Pt
       TH1F * cc = new TH1F(hstr,hstr,NPtBinsHLT,vpt_HLT);
+      //TH1F * cc = new TH1F(hstr,hstr,70,0,70);	//for fixed Pt
       for (int b = 1; b <= cc->GetNbinsX(); b++){
 	jetCorr->setJetPt(cc->GetBinCenter(b));
+	//jetCorr->setJetPt(fixedRho);	//for fixed Pt
 	jetCorr->setJetEta(EtaVals[c]);
     jetCorr->setRho(fixedRho);
+    //jetCorr->setRho(cc->GetBinCenter(b));	//for fixed Pt
     jetCorr->setJetA(TMath::Pi()*TMath::Power(JetInfo(algo).coneSize/10.0,2));
 	double cor = jetCorr->getCorrection();
 	if (std::isnan((double)cor) ||  std::isinf((double)cor) ){
@@ -780,23 +982,34 @@ TCanvas * getCorrectionVsPtCanvas(TString algo, FactorizedJetCorrector * jetCorr
 	}
 
 	cc->SetBinContent(b,cor);
+	cc->SetBinError(b,0.);
       }//for pt bins
-      cc->GetXaxis()->SetTitle("Pt");
+      cc->GetXaxis()->SetTitle("p_{T}^{Reco}");
+      //cc->GetXaxis()->SetTitle("#rho");	//for fixed Pt
+      cc->GetXaxis()->SetRangeUser(15.,4000.);
       cc->GetYaxis()->SetTitle("Corr. Factor");
-      cc->GetYaxis()->SetRangeUser(0.70,3.0);
+//    cc->GetXaxis()->SetRangeUser(20.,2000.);
+//    cc->GetYaxis()->SetRangeUser(0.60,1.5);
+      cc->GetYaxis()->SetRangeUser(0.90,2.);
 
       //Create a pave indicating the eta 
       TString ptstr;
       ptstr.Form("#eta=%.1f",EtaVals[c]);
-      TPaveText * pave = new TPaveText(0.3,0.75,0.8,0.9,"NDC");
-      pave->AddText(algo);
+      TPaveText * pave = new TPaveText(0.65,0.7,0.75,0.8,"NDC");
+      //pave->AddText("APV UL 2016");
+      //pave->AddText(algo);
       pave->AddText(ptstr);      
       pave->SetFillColor(0);
       pave->SetShadowColor(0);
+      pave->SetBorderSize(0);
+      pave->SetTextSize(0.08);
 
       (ovp->cd(c+1))->SetLogx(1);
-      cc->SetFillColor(30);
-      cc->SetFillStyle(3001);
+      //ovp->cd(c+1);	//for fixed Pt
+      //cc->SetFillColor(30);
+      //cc->SetFillStyle(3001);
+      cc->SetLineColor(kRed);
+      cc->SetLineWidth(2);
       cc->Draw();
       pave->Draw();
 
@@ -814,7 +1027,7 @@ TCanvas * getCorrectionVsPtComparisonCanvasTDR(vector<TString>& algs, vector<pai
                                                TString suffix) {
 
   //Create canvas vs eta for different pts  
-  vector<double> EtaVals;
+  /*vector<double> EtaVals;
   EtaVals.push_back(-4.8);
   EtaVals.push_back(-4.0);
   EtaVals.push_back(-3.2);
@@ -827,7 +1040,98 @@ TCanvas * getCorrectionVsPtComparisonCanvasTDR(vector<TString>& algs, vector<pai
   EtaVals.push_back( 2.4);
   EtaVals.push_back( 3.2);
   EtaVals.push_back( 4.0);
-  EtaVals.push_back( 4.8);
+  EtaVals.push_back( 4.8);*/
+
+vector<double> EtaVals;
+EtaVals.push_back(0);
+EtaVals.push_back(0.087);
+EtaVals.push_back(0.174);
+EtaVals.push_back(0.261);
+EtaVals.push_back(0.348);
+EtaVals.push_back(0.435);
+EtaVals.push_back(0.522);
+EtaVals.push_back(0.609);
+EtaVals.push_back(0.696);
+EtaVals.push_back(0.783);
+EtaVals.push_back(0.879);
+EtaVals.push_back(0.957);
+EtaVals.push_back(1.044);
+EtaVals.push_back(1.131);
+EtaVals.push_back(1.218);
+EtaVals.push_back(1.305);
+EtaVals.push_back(1.392);
+EtaVals.push_back(1.479);
+EtaVals.push_back(1.566);
+EtaVals.push_back(1.653);
+EtaVals.push_back(1.740);
+
+
+/*EtaVals.push_back(1.830);
+EtaVals.push_back(1.930);
+EtaVals.push_back(2.043);
+EtaVals.push_back(2.172);
+EtaVals.push_back(2.322);
+EtaVals.push_back(2.500);
+EtaVals.push_back(2.650);
+EtaVals.push_back(2.853);
+EtaVals.push_back(2.964);
+EtaVals.push_back(3.139);
+EtaVals.push_back(3.314);
+EtaVals.push_back(3.489);
+EtaVals.push_back(3.664);
+EtaVals.push_back(3.839);
+EtaVals.push_back(4.013);
+EtaVals.push_back(4.191);
+EtaVals.push_back(4.363);
+EtaVals.push_back(4.538);
+EtaVals.push_back(4.716);
+EtaVals.push_back(4.889);
+EtaVals.push_back(5.191);*/
+
+/*EtaVals.push_back(0);
+EtaVals.push_back(-0.087);
+EtaVals.push_back(-0.174);
+EtaVals.push_back(-0.261);
+EtaVals.push_back(-0.348);
+EtaVals.push_back(-0.435);
+EtaVals.push_back(-0.522);
+EtaVals.push_back(-0.609);
+EtaVals.push_back(-0.696);
+EtaVals.push_back(-0.783);
+EtaVals.push_back(-0.879);
+EtaVals.push_back(-0.957);
+EtaVals.push_back(-1.044);
+EtaVals.push_back(-1.131);
+EtaVals.push_back(-1.218);
+EtaVals.push_back(-1.305);
+EtaVals.push_back(-1.392);
+EtaVals.push_back(-1.479);
+EtaVals.push_back(-1.566);
+EtaVals.push_back(-1.653);
+EtaVals.push_back(-1.740);*/
+
+/*EtaVals.push_back(-1.830);
+EtaVals.push_back(-1.930);
+EtaVals.push_back(-2.043);
+EtaVals.push_back(-2.172);
+EtaVals.push_back(-2.322);
+EtaVals.push_back(-2.500);
+EtaVals.push_back(-2.650);
+EtaVals.push_back(-2.853);
+EtaVals.push_back(-2.964);
+EtaVals.push_back(-3.139);
+EtaVals.push_back(-3.314);
+EtaVals.push_back(-3.489);
+EtaVals.push_back(-3.664);
+EtaVals.push_back(-3.839);
+EtaVals.push_back(-4.013);
+EtaVals.push_back(-4.191);
+EtaVals.push_back(-4.363);
+EtaVals.push_back(-4.538);
+EtaVals.push_back(-4.716);
+EtaVals.push_back(-4.889);
+EtaVals.push_back(-5.191);
+*/
 
   //Create the canvas with multiple pads
   TString ss("CorrectionVsPt_Comparison_TDR");
@@ -880,11 +1184,12 @@ TCanvas * getCorrectionVsPtComparisonCanvasTDR(vector<TString>& algs, vector<pai
       }//for eta bins
 
       cc->GetXaxis()->SetTitle("p_{T}");
+      cc->GetXaxis()->SetRangeUser(9.,10000.);
       cc->GetYaxis()->SetTitle("Corr. Factor");
       if(abs(EtaVals[c])>2.0)
          cc->GetYaxis()->SetRangeUser(0.7,6.0);
       else
-         cc->GetYaxis()->SetRangeUser(0.7,3.0);
+         cc->GetYaxis()->SetRangeUser(0.7,2.5);
       cc->SetFillColor(30);
       cc->SetFillStyle(3001);
 
@@ -1174,6 +1479,7 @@ FactorizedJetCorrector * getFactorizedCorrector(TString algo, CommandLine & cl, 
   bool    useL3Cor     = cl.getValue<bool>   ("useL3Cor"     , false   );
   bool    useL2L3ResCor= cl.getValue<bool>   ("useL2L3ResCor", false   );
           fixedRho     = cl.getValue<double> ("fixedRho"     , 10.0    );
+	  //fixedRho     = cl.getValue<double> ("fixedRho"     , 200.0    );	//for fixed Pt
 
   if (era.length()==0) {
     cout<<"ERROR flag -era must be specified"<<endl;

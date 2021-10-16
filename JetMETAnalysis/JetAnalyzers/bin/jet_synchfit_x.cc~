@@ -378,7 +378,7 @@ bool getInputProfiles(TString inputFilename, TProfile3D *& prof,
       profPt  = (TProfile3D*) fin->Get("p_PtAve_etaVsNpusVsJetPt"); // pt(eta, rho, refpt)
       profRho = (TProfile3D*) fin->Get("p_RhoAve_etaVsNpusVsJetPt");// rho(eta, rho, refpt)
       hist    = (TH3I*)       fin->Get("p_Events_etaVsNpusVsJetPt");
-	cout<<"EDWWW useNPU EINAI TRUE"<<endl;
+
       if (!prof || !profPt  || !profRho || !hist) {
         cout<<"ERROR jet_synchfit_xx::getInputProfiles() could not retrieve TProfile3D named "
         <<"either of  p_offOverA_etaVsNpusVsJetPt, p_PtAve_etaVsNpusVsJetPt, "
@@ -391,7 +391,7 @@ bool getInputProfiles(TString inputFilename, TProfile3D *& prof,
       profPt  = (TProfile3D*) fin->Get("p_PtAve_etaVsTnpusVsJetPt"); // pt(eta, rho, refpt)
       profRho = (TProfile3D*) fin->Get("p_RhoAve_etaVsTnpusVsJetPt");// rho(eta, rho, refpt)
       hist    = (TH3I*)       fin->Get("p_Events_etaVsTnpusVsJetPt");
-	cout<<"EDWWW useNPU EINAI FALSE"<<endl;
+
       if (!prof || !profPt  || !profRho || !hist) {
         cout<<"ERROR jet_synchfit_xx::getInputProfiles() could not retrieve TProfile3D named "
         <<"either of  p_offOverA_etaVsTnpusVsJetPt, p_PtAve_etaVsTnpusVsJetPt, "
@@ -425,27 +425,23 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
   else if(functionType=="ak4") {
     if(!pari_set) {
 //    pari = {15,1,-1,5,0,0};	//for complex
-      pari = {5,1};		//for simple
-//    pari = {5,1,0.1};		//for semi simple
+//    pari = {15,1};		//for simple
+      pari = {15,1,-1};		//for semi simple
       pari_set = true;
     }
 //    function = "[0]+[1]*(x-20.0)+[2]*log(y/30.0)+[3]*pow(log(y/30.0),2)+[4]*(x-20.0)*log(y/30.0)+[5]*(x-20.0)*pow(log(y/30.0),2)";	//complex parametrization
-      function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
-//    function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization
+//    function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
+      function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization
   }
 
   else if(functionType=="ak8") {
     if(!pari_set) {
-//    pari = {15,1,-1,5,0,0};
+      pari = {15,1,-1,5,0,0};
 //    pari = {15,1,-1};
-//    pari = {15,1,-1,0,0};
-      pari = {5,1};
       pari_set = true;
     }
-//  function = "[0]+[1]*(x-20.0)+[2]*log(y/90.0)+[3]*pow(log(y/90.0),2)+[4]*(x-20.0)*log(y/90.0)+[5]*(x-20.0)*pow(log(y/90.0),2)"; 
+    function = "[0]+[1]*(x-20.0)+[2]*log(y/90.0)+[3]*pow(log(y/90.0),2)+[4]*(x-20.0)*log(y/90.0)+[5]*(x-20.0)*pow(log(y/90.0),2)"; 
 //  function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization 
-//  function = "[1]*(x-[0])*(1.+[2]*log(y/15.))+[3]*x*y+[4]*x*pow(y,0.6)";	//modified semi simple for APV UL2016 by Mikko
-    function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
   }
 
   else if(functionType=="ak4_test") {
@@ -638,13 +634,12 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
       //f4 = new TF2("f4",function, 5,50,10,3000);
 
       if (functionType=="ak4") {
-      //f4->SetRange(0,30,70,100);	//for simple parametrization, fits for pT:30-100GeV
-      f4->SetRange(0,8,70,6500);	//for complex and semi simple parametrization, fits for pT:8-6500GeV
+//      f4->SetRange(0,30,70,100);	//for simple parametrization, fits for pT:30-100GeV
+	f4->SetRange(0,8,70,6500);	//for complex and semi simple parametrization, fits for pT:8-6500GeV
       }
 
       if (functionType=="ak8") {
         f4->SetRange(0,8,70,6500);
-	//f4->SetRange(0,8,70,500);
       }
 
       if(functionType=="puppi") {
@@ -665,16 +660,6 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
       else {
         for(unsigned int ipar=0; ipar<pari.size(); ipar++) {
           f4->SetParameter(ipar,pari[ipar]);
-	  //f4->SetParLimits(0,-100.,100.);
-	  //f4->SetParLimits(1,-100.,100.);
-	  //below for modified semi simple for the APV UL2016 by Mikko
-	  //f4->SetParLimits(5,0.5,2.);
-	  /*if((iEta>=1 && iEta<=15) || (iEta>=68 && iEta<=82))
-	  {
-		f4->FixParameter(3,0);
-		f4->FixParameter(4,0);
-		//f4->FixParameter(5,0);
-	  }*/
         }
       }
 
@@ -691,15 +676,6 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
         cout << "\tResetting initial parameters" << endl;
         for(unsigned int ipar=0; ipar<pari.size(); ipar++) {
           f4->SetParameter(ipar,pari[ipar]);
-	  //f4->SetParLimits(0,-100.,100.);
-	  //f4->SetParLimits(1,-100.,100.);
-/*	  if((iEta>=1 && iEta<=15) || (iEta>=68 && iEta<=82))
-	  {
-		f4->FixParameter(3,0);
-		f4->FixParameter(4,0);
-		//f4->FixParameter(5,0);
-	  } */
-	  //f4->SetParLimits(5,0.5,2.);
         }
       }
     } while ((rchi2>9 || rchi2==0.0) && counter < nfits);
@@ -944,7 +920,6 @@ int main(int argc,char**argv){
     TCanvas *pad1 = new TCanvas("pad1", "",1);
     g_chi2ndf_vs_eta->GetYaxis()->SetTitle("Chi2/ndf");
     g_chi2ndf_vs_eta->GetXaxis()->SetTitle("eta");
-    g_chi2ndf_vs_eta->GetYaxis()->SetRangeUser(0.,7.2);
     g_chi2ndf_vs_eta->SetMarkerStyle(20);
     g_chi2ndf_vs_eta->Draw("AP");
     pad1->SaveAs(Form("%s/Chi2NDF_vs_eta.png",outputDir.data()));

@@ -331,8 +331,102 @@ TH1 * getResolutionHistoFromHisto_v2(TString cname, TString title, TH2 * histo_i
 
 }//getResolutionHistoFromHisto_v2
 
+//------------------------------------------------------------------
 
-// ------------------------------------------------------------------
+TF1* FindBestGaussianCoreFit(TH1D* histo)
+{
+
+	double mean = histo->GetMean();
+	double rms = histo->GetRMS();
+	bool quiet_mode = true; //minimum prints on terminal
+	
+	int HalfMaxBinLow = histo->FindFirstBinAbove(histo->GetMaximum()/2);
+	int HalfMaxBinHigh = histo->FindLastBinAbove(histo->GetMaximum()/2);
+	double WidthAtHalfMaximum = 0.5*(histo->GetBinCenter(HalfMaxBinHigh) - histo->GetBinCenter(HalfMaxBinLow));
+    	double Xmax  = histo->GetXaxis()->GetBinCenter(histo->GetMaximumBin());
+
+	TF1 *gausTF1;
+
+	double Pvalue = 0;
+	double ChiSquare;
+	double ndf;
+
+	double rms_step_plus;	
+	double RangeLow = 0.;
+	double RangeUp = 5.;
+	double meanForRange;
+	double spreadForRange;
+
+	double PvalueBest = 0;
+	double RangeLowBest = 0;
+	double RangeUpBest = 0;
+	double ChiSquareBest;
+	double ndfBest;
+	double StepMinusBest;
+	double StepPlusBest;
+
+	if(Xmax < mean) meanForRange = Xmax;
+	else meanForRange = mean; //because some entries with LARGE errors sometimes falsely become the maximum
+
+	if(WidthAtHalfMaximum < rms && WidthAtHalfMaximum>0) spreadForRange = WidthAtHalfMaximum;
+	else spreadForRange = rms; //because WHF does not take into account weights and sometimes it turns LARGE
+
+	double rms_step_minus = 2.2;
+	while (rms_step_minus>0.5)
+	{ 
+		RangeLow = meanForRange - rms_step_minus*spreadForRange;
+//		rms_step_plus = 2.2;
+		rms_step_plus = rms_step_minus;  
+
+		while ( rms_step_plus>0.5  )
+		{	
+			RangeUp = meanForRange + rms_step_plus*spreadForRange;
+			if(quiet_mode)	histo->Fit("gaus","0Q","0",RangeLow, RangeUp);
+			else 		histo->Fit("gaus","0","0",RangeLow, RangeUp);
+			gausTF1 = (TF1*)	histo->GetListOfFunctions()->FindObject("gaus");
+			ChiSquare = gausTF1->GetChisquare();
+			ndf       = gausTF1->GetNDF();
+			Pvalue = TMath::Prob(ChiSquare, ndf);			
+	
+			if (Pvalue > PvalueBest)
+			{
+				PvalueBest = Pvalue;
+				RangeLowBest = RangeLow;
+				RangeUpBest = RangeUp;
+				ndfBest = ndf;
+				ChiSquareBest = ChiSquare;
+				StepMinusBest = rms_step_minus; 
+				StepPlusBest = rms_step_plus; 
+				meanForRange = gausTF1->GetParameter(1);
+			}
+
+			if(!quiet_mode)
+			{
+				cout << "\n\nFitting range used: [Mean - " << rms_step_minus  << " sigma,  Mean + " << rms_step_plus << " sigma ] "<< endl;
+				cout << "ChiSquare = " << ChiSquare << " NDF = " << ndf << " Prob =  " << Pvalue << "  Best Prob so far = " << PvalueBest << endl;
+			}
+			rms_step_plus = rms_step_plus - 0.1;
+		}
+		rms_step_minus = rms_step_minus - 0.1;
+	}
+
+	if (quiet_mode) histo->Fit("gaus","0Q","0",RangeLowBest, RangeUpBest);
+	else 
+	{
+		histo->Fit("gaus","0","0",RangeLowBest, RangeUpBest);
+		cout << "\n\n\nMean =  " << mean << "  Xmax = " << Xmax << "  RMS = " << rms << "  WidthAtHalfMax = " << WidthAtHalfMaximum <<  endl;
+		cout << "Fit found!" << endl;
+		cout << "Final fitting range used: [Mean(Xmax) - " << StepMinusBest << " rms(WHF), Mean(Xmax) + " << StepPlusBest << " rms(WHF) ] "<< endl;
+		cout << "ChiSquare = " << ChiSquareBest << " NDF = " << ndfBest << " Prob =  " << PvalueBest << "\n\n" << endl;
+	}	
+	gausTF1 = (TF1*)	histo->GetListOfFunctions()->FindObject("gaus");
+
+	//cout << "Mean =  " << mean << "  Xmax = " << Xmax << " Final fitting range used : ["<<RangeLowBest<<", "<<RangeUpBest<<"]"<<endl;
+
+	return gausTF1;
+}
+
+//------------------------------------------------------------------
 // get mean from histo. Return mean.
 TH1 * getMeanHistoFromHisto(TString cname, TString title, TH2 *off_in, double & miny, double & maxy){
 
@@ -345,6 +439,7 @@ TH1 * getMeanHistoFromHisto(TString cname, TString title, TH2 *off_in, double & 
    histo->Reset();
    //histo->Clear();
    histo->GetYaxis()->SetTitle(title);
+   cout << "Name = " << cname << endl;
   
    // Now loop over the entries of prof and set the histo
    for (int nb = 1 ; nb <= histo->GetXaxis()->GetNbins() ; nb++){
@@ -353,33 +448,73 @@ TH1 * getMeanHistoFromHisto(TString cname, TString title, TH2 *off_in, double & 
       //double ptreferr =  0.5*(histo->GetXaxis()->GetBinLowEdge(nb)+histo->GetXaxis()->GetBinUpEdge(nb));
       double val = 0;
       double valerr = 0;
-    
+	
+      //if (cname.Contains("OffMeantnpuRef_",TString::kIgnoreCase)) cout << "pT bin " << nb << " , pt range : " << histo->GetXaxis()->GetBinLowEdge(nb) << " - " << histo->GetXaxis()->GetBinUpEdge(nb) << endl;	    
 
-      TH1 * aux= off_in->ProjectionY("_py",nb,nb);
-      if (aux->GetEntries() > 0) {
+      TH1D * aux= off_in->ProjectionY("_py",nb,nb);
+      if (aux->GetEntries() > 100) 
+      {
+//	 	std::cout<< "Aux Entries = " << aux->GetEntries() <<std::endl;
 
-         TFitResultPtr fr = aux->Fit("gaus","0qS");
-         //cout << cname << "sfsg1\tnb=" << nb << endl;
+		//Rebin appropriately, it helps the fit congerge in some cases
+		//aux->Rebin(4);
+		if(nb>=33)
+		{
+			aux->Rebin(10);
+		}
+		else if(nb<=21 && cname.Contains("OffMeantnpuRef_BB",TString::kIgnoreCase) )
+		{
+			aux->Rebin(4);
+		}
+		else if(nb<=19 && cname.Contains("OffMeantnpuRef_EI",TString::kIgnoreCase) )
+		{
+			aux->Rebin(4);
+		}
+		else
+		{
+			aux->Rebin(2);
+		}
 
-         // Skip if fit failed
-         if (fr.Get() && !fr->Status()){
-            double mean    = fr->Parameter(1);
-            double meanerr = fr->ParError(1);
-            //double rms     = fr->Parameter(2);
-            //double rmserr  = fr->ParError(2);
 
-            val = mean ;//cout <<val<<" ";
-            if (val>maxy && meanerr<0.4) maxy=val;
-            if (val<miny && meanerr<0.4) miny=val;
-            valerr = meanerr;
+		//To get arithmetic mean
+		//val=aux->GetMean();
+		//valerr=aux->GetMeanError();
+		
+		//To get median
+/*		double x,q;
+		q=0.5;
+		aux->ComputeIntegral();
+		aux->GetQuantiles(1, &x, &q);
+		val=x;
+		valerr=1.253*aux->GetRMS()/TMath::Sqrt(aux->GetEffectiveEntries());
+*/
 
-         }
+		TF1 *g1;
+		g1=FindBestGaussianCoreFit(aux);
+		val=g1->GetParameter(1);
+		valerr=g1->GetParError(1);
+
+
+		if(cname.Contains("OffMeantnpuRef_",TString::kIgnoreCase)) cout <<"Prob = "<<g1->GetProb()<<" , pt bin = " << nb <<" , Mean = " << val << ", Error Mean = " << valerr << endl;
+
+		//if(g1->GetProb()>=0.0001)
+		//{
+			histo->SetBinContent(nb,val);
+      			histo->SetBinError(nb,valerr);
+		//}
+		//else
+		//{
+      		//	histo->SetBinContent(nb,-999.);
+      		//	histo->SetBinError(nb,0.);
+		//}
 
       }
-
-      histo->SetBinContent(nb,val);
-      histo->SetBinError(nb,valerr);
-
+      else
+      {
+      		histo->SetBinContent(nb,-999.);
+      		histo->SetBinError(nb,0.);
+      }
+ 
 
       // clean up
       delete aux;
@@ -387,6 +522,7 @@ TH1 * getMeanHistoFromHisto(TString cname, TString title, TH2 *off_in, double & 
    }
    //histo->GetYaxis()->SetRangeUser(0,maxy);
    histo->GetYaxis()->SetRangeUser(miny,maxy);
+   histo->GetXaxis()->SetRangeUser(15.,6500.);
    // return
    return histo;
 
@@ -761,7 +897,7 @@ TCanvas * getResolutionNumDenom(TString cname, TString ctitle, TString algo, TH2
 TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<TH2*> off, bool fixedRange, vector<pair<int,int> > npvRhoNpuBins){
    setTDRStyle();
 
-   cout<<"\t Doing fits for Mean "<<cname<<endl;
+   //cout<<"\t Doing fits for Mean "<<cname<<endl;
    JetInfo ji(algo);
    algo.ToUpper();
   
@@ -779,12 +915,14 @@ TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<
    else
       NPV_Rho = 0;
 
-   TH1D* hbin = new TH1D(Form("hbin_%s",cname.Data()),Form("hbin_%s",cname.Data()), 10000, 0.,10000.);
-   hbin->GetXaxis()->SetLimits(6.0,4000.0);
+   //TH1D* hbin = new TH1D(Form("hbin_%s",cname.Data()),Form("hbin_%s",cname.Data()), 10000, 0.,10000.);
+   TH1D* hbin = new TH1D(Form("hbin_%s",cname.Data()),Form("hbin_%s",cname.Data()), 9985, 15.,10000.);
+   //hbin->GetXaxis()->SetLimits(6.0,4000.0);
    hbin->GetXaxis()->SetMoreLogLabels();
    hbin->GetXaxis()->SetNoExponent();
-   hbin->GetXaxis()->SetTitle("p_{T}^{ptcl} (GeV)");
+   hbin->GetXaxis()->SetTitle("p_{T}^{Gen} (GeV)");
    hbin->GetYaxis()->SetTitle(ctitle);
+   //hbin->GetYaxis()->SetTitle("Median(offset) (GeV)");
    TCanvas* c = tdrCanvas(cname,hbin,14,11,true);
    c->GetPad(0)->SetLogx();
 
@@ -831,14 +969,18 @@ TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<
    }
    */
 
+
+
+
    for (unsigned int j=0;j<hh.size();j++) {
-      scanHistoBinError(hh[j],0.4);
+      scanHistoBinError(hh[j],1.);
       if(isHistoEmpty(hh[j])) {
-         cout << "WARNING::getGausMeanOffset histogram hh[j] = " << hh[j]->GetName() << " is empty and will be skipped." << endl;
+         //cout << "WARNING::getGausMeanOffset histogram hh[j] = " << hh[j]->GetName() << " is empty and will be skipped." << endl;
          continue;
       }
-      hh[j]->GetXaxis()->SetRangeUser(6.0,4000.0);
-      hh[j]->GetXaxis()->SetLimits(6.0,4000.0);
+      //hh[j]->GetXaxis()->SetRangeUser(6.0,5000.0);
+      //hh[j]->GetXaxis()->SetLimits(6.0,5000.0);
+      
 
       if(NPV_Rho == 4)
          tdrDraw(hh[j],"E",kFullCircle,colPDGID[j],kSolid,colPDGID[j]);
@@ -862,7 +1004,7 @@ TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<
          var.ToUpper();
       }
 
-      if(NPV_Rho == 0)
+/*      if(NPV_Rho == 0)
          leg->AddEntry(hh[j],var,"lep");
       else if(j<hh.size()-1)
          leg->AddEntry(hh[j],JetInfo::getBinLegendEntry(var,npvRhoNpuBins[j].first,npvRhoNpuBins[j].second+1),"lep");
@@ -870,10 +1012,20 @@ TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<
          leg->AddEntry(hh[j],JetInfo::getBinLegendEntry(var,npvRhoNpuBins[j].first,npvRhoNpuBins[j].second+1),"lep");
       else
          leg->AddEntry(hh[j],JetInfo::getBinLegendEntry(var,npvRhoNpuBins[j].first),"lep");
+*/
+
+//Fixed plotting bug
+      if(NPV_Rho == 0)
+         leg->AddEntry(hh[j],var,"lep");
+      else if(NPV_Rho == 3)
+         leg->AddEntry(hh[j],JetInfo::getBinLegendEntry(var,npvRhoNpuBins[j].first,npvRhoNpuBins[j].second+1),"lep");
+      else
+         leg->AddEntry(hh[j],JetInfo::getBinLegendEntry(var,npvRhoNpuBins[j].first,npvRhoNpuBins[j].second+1),"lep");	
+
    }
    leg->Draw("SAME");
    //c->Update();
-   if(fixedRange) {
+/*   if(fixedRange) {
       hbin->GetYaxis()->SetRangeUser(-3.0,3.0);
       if(NPV_Rho == 3)
          hbin->GetYaxis()->SetRangeUser(-0.6,1.4);
@@ -885,7 +1037,14 @@ TCanvas * getGausMeanOffset(TString cname, TString ctitle, TString algo, vector<
       hbin->GetYaxis()->SetRangeUser(((miny >= 0) - (miny < 0))*1.25*fabs(miny),findNonOverlappingYmax(c,hh,leg));
       cout << "This is the value returned by findNonOverlappingYmax(c,hh,leg): " << findNonOverlappingYmax(c,hh,leg,true,make_pair(false,false),true) << endl;
    }
-
+*/
+   hbin->GetYaxis()->SetRangeUser(-10.,50.);
+//   hbin->GetYaxis()->SetRangeUser(-50.,80.);
+   hbin->GetXaxis()->SetLimits(15.,6500.);
+   hbin->GetXaxis()->SetLabelSize(0.04);
+   hbin->GetYaxis()->SetLabelSize(0.04);
+   hbin->GetXaxis()->SetTitleSize(0.055);
+   hbin->GetYaxis()->SetTitleSize(0.055);
 
 /*
    //Draw Algo name and detector region eta using TLatex.

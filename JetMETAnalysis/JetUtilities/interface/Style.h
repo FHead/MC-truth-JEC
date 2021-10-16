@@ -157,6 +157,8 @@ CMS_lumi( TPad* pad, int iPeriod, int iPosX, bool verbose )
   else {
      extraText   = "Simulation";
      extraText2   = "Preliminary"; // For Simulation Preliminary on two lines
+     //extraText2 = "";
+     extraText3 = "";
   }
   float extraTextFont = 52;  // default is helvetica-italics
 
@@ -259,7 +261,7 @@ CMS_lumi( TPad* pad, int iPeriod, int iPosX, bool verbose )
     }
   else if ( iPeriod==14 )
     {
-      lumiText += "13 TeV";
+      lumiText += "#bf{#it{Summer 20 non-APV UL 2016}}(13 TeV)"; //#bf{#it{UL 2018}} 
     }
   else if ( iPeriod==15 )
     {
