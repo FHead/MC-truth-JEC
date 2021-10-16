@@ -1,0 +1,1345 @@
+Universe   = vanilla
+Executable = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16/Step1ListRunLumi.sh
++JobFlavour = microcentury
+should_transfer_files = NO
+
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_101.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_101.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_102.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_102.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_105.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_105.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_107.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_107.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_108.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_108.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_10.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_10.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_110.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_110.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_111.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_111.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_113.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_113.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_114.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_114.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_115.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_115.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_118.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_118.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_119.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_119.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_122.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_122.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_124.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_124.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_125.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_125.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_126.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_126.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_127.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_127.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_12.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_12.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_131.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_131.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_135.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_135.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_137.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_137.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_143.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_143.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_145.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_145.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_148.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_148.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_149.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_149.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_14.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_14.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_150.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_150.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_152.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_152.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_17.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_17.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_18.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_18.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_19.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_19.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_1.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_1.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_21.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_21.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_23.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_23.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_24.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_24.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_26.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_26.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_27.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_27.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_28.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_28.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_29.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_29.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_2.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_2.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_30.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_30.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_31.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_31.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_32.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_32.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_33.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_33.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_34.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_34.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_35.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_35.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_36.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_36.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_37.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_37.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_38.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_38.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_39.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_39.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_3.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_3.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_40.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_40.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_41.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_41.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_42.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_42.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_43.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_43.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_44.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_44.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_45.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_45.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_47.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_47.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_48.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_48.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_49.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_49.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_50.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_50.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_51.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_51.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_52.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_52.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_53.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_53.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_54.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_54.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_55.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_55.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_56.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_56.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_57.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_57.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_58.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_58.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_59.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_59.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_5.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_5.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_60.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_60.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_61.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_61.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_62.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_62.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_63.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_63.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_64.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_64.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_65.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_65.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_66.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_66.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_67.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_67.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_68.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_68.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_69.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_69.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_6.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_6.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_70.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_70.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_71.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_71.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_72.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_72.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_73.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_73.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_74.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_74.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_75.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_75.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_76.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_76.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_77.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_77.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_78.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_78.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_79.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_79.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_7.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_7.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_81.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_81.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_83.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_83.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_86.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_86.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_87.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_87.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_88.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_88.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_8.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_8.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_91.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_91.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_92.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_92.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_94.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_94.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_95.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_95.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_96.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_96.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Epsilon/JRA_9.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultNoPU/JRA_9.txt
+Output    = Log/Step1NoPU.out.$(Process)
+Error     = Log/Step1NoPU.err.$(Process)
+Log       = Log/Step1NoPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_100.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_100.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_101.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_101.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_102.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_102.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_103.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_103.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_104.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_104.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_105.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_105.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_106.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_106.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_107.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_107.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_108.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_108.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_109.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_109.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_110.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_110.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_111.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_111.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_112.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_112.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_113.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_113.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_114.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_114.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_115.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_115.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_116.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_116.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_117.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_117.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_118.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_118.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_119.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_119.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_120.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_120.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_121.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_121.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_122.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_122.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_123.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_123.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_124.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_124.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_125.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_125.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_126.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_126.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_127.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_127.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_128.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_128.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_129.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_129.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_130.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_130.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_131.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_131.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_132.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_132.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_133.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_133.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_134.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_134.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_135.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_135.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_136.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_136.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_137.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_137.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_138.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_138.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_139.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_139.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_140.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_140.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_141.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_141.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_142.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_142.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_143.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_143.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_144.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_144.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_145.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_145.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_146.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_146.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_147.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_147.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_148.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_148.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_149.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_149.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_150.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_150.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_151.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_151.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_152.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_152.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_153.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_153.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_154.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_154.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_155.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_155.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_156.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_156.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_157.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_157.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_158.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_158.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_159.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_159.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_160.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_160.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_161.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_161.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_162.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_162.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_163.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_163.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_164.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_164.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_165.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_165.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_166.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_166.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_167.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_167.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_168.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_168.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_169.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_169.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_16.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_16.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_170.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_170.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_171.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_171.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_172.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_172.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_173.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_173.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_174.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_174.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_177.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_177.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_179.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_179.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_17.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_17.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_18.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_18.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_19.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_19.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_1.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_1.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_20.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_20.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_21.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_21.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_22.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_22.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_23.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_23.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_24.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_24.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_25.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_25.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_26.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_26.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_27.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_27.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_28.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_28.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_29.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_29.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_30.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_30.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_31.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_31.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_32.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_32.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_33.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_33.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_34.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_34.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_35.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_35.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_36.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_36.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_37.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_37.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_38.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_38.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_39.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_39.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_40.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_40.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_41.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_41.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_42.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_42.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_43.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_43.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_44.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_44.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_45.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_45.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_46.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_46.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_47.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_47.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_48.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_48.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_49.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_49.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_50.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_50.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_51.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_51.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_52.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_52.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_53.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_53.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_54.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_54.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_55.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_55.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_56.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_56.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_57.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_57.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_58.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_58.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_59.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_59.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_60.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_60.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_61.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_61.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_62.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_62.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_63.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_63.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_64.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_64.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_65.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_65.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_66.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_66.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_67.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_67.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_68.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_68.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_69.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_69.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_70.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_70.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_71.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_71.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_72.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_72.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_73.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_73.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_74.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_74.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_75.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_75.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_76.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_76.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_77.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_77.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_78.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_78.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_79.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_79.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_80.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_80.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_81.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_81.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_82.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_82.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_83.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_83.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_84.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_84.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_85.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_85.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_86.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_86.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_87.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_87.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_88.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_88.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_89.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_89.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_90.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_90.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_91.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_91.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_92.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_92.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_93.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_93.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_94.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_94.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_95.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_95.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_96.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_96.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_97.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_97.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_98.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_98.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue
+Arguments = /afs/cern.ch/work/i/izisopou/public/JEC/CMSSW_10_5_0/src/condor_chs_S20UL16 /eos/cms/store/group/phys_jetmet/ilias/Summer20UL16_Samples/nonAPV/Flat/JRA_99.root /eos/cms/store/group/phys_jetmet/ilias/JEC_Summer20UL2016/nonAPV/Step1_AK4CHS//ResultWithPU/JRA_99.txt
+Output    = Log/Step1WithPU.out.$(Process)
+Error     = Log/Step1WithPU.err.$(Process)
+Log       = Log/Step1WithPU.log.$(Process)
+Queue

@@ -21,8 +21,7 @@
 #include "xrootd/XProtocol/XProtocol.hh"
 #include "xrootd/XrdCl/XrdClXRootDResponses.hh"
 #include "xrootd/XrdCl/XrdClFileSystem.hh"
-//#include "condor_chs/XrdClFileSystem_v2.hh"
-//#include "JetMETAnalysis/JetAnalyzers/XrdClFileSystem_v2.hh"
+//#include "condor/XrdClFileSystem_v2.hh"
 #define has_xrdcl 1
 #else
 #define has_xrdcl 0
