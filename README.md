@@ -4,8 +4,8 @@
 
 - [Overview](#overview)
 - [Instructions on how to run ntuples from MINIAOD](#ntuples-miniaod)
-- [Instructions on how to create pileup histograms for PU Reweighting](#PU-reweight)
 - [Instructions on how to derive MC-truth JEC](#JEC)
+	- [Histograms for PU Reweighting](#PU-reweight)
 	- [Pileup Offset Corrections (L1)](#L1)
 	- [Relative & Absolute Corrections (L2L3)](#L2L3)
 
@@ -29,8 +29,20 @@ cmsrel CMSSW_10_6_17 \
 cd CMSSW_10_6_17/src \
 cmsenv \
 git-cms-init \
-git clone https://github.com/izisopou/MC-truth-JEC.git \
-scram b -j 4 \
+git clone https://github.com/izisopou/MC-truth-JEC.git 
+
+Before compiling you need to remove the unnecessary folder MC-truth-JEC/ from this directory $CMSSW_BASE/src/MC-truth-JEC/JetMETAnalysis/JetAnalyzers/src/ . That is because only 2 folders in between the 2 src/ folders should exist in order for scram to work. To do this:
+
+cd $CMSSW_BASE/src/ \
+mv -f MC-truth-JEC/* . \
+rm -rf MC-truth-JEC 
+
+Then compile:
+
+cd $CMSSW_BASE/src/ \
+scram b -j 4 
+
+Once compiling the codes is done with no problems:
 
 cd $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/test/
 
@@ -82,8 +94,8 @@ When all jobs are finished, the output JRA root files, based on the above custom
 
 These JRA_*.root files are the input ntuples for the MC-truth jet energy corrections.
 
-<a name="PU-reweight"></a>
-## Instructions on how to create pileup histograms for PU Reweighting
+<a name="JEC"></a>
+## Instructions on how to derive MC-truth JEC
 
 Setup your CMSSW : 10_5_X is used for Run 2 ultra-legacy calibrations studies , see here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
 
@@ -96,11 +108,16 @@ cd CMSSW_10_5_0/src \
 cmsenv \
 git-cms-init \
 git clone https://github.com/izisopou/MC-truth-JEC.git \
+mv -f MC-truth-JEC/* . \
+rm -rf MC-truth-JEC \
 scram b -j 4
+
+<a name="#PU-reweight"></a>
+### Histograms for PU Reweighting
 
 In order to later do PU reweighting when deriving and applying the corrections you need to have 2 input root files with the mu (pileup) distribution; one for data and one for the MC. Note that they should have the same binning (we usually use 100 bins from 0 to 100).
 
-**To produce the root file for data:
+To produce the root file for data:
 
 You need to take the files that are located in the JERC Protolab : \
 https://gitlab.cern.ch/cms-jetmet/JERCProtoLab/-/tree/master/macros/lumi_PU/InputFiles 
@@ -118,9 +135,12 @@ root -l \
 [0] .x create_MyHist.C
 
 
-<a name="#JEC"></a>
-## Instructions on how to derive MC-truth JEC
+<a name="#L1"></a>
+### Pileup Offset Corrections (L1)
 
+
+<a name="#L2L3"></a>
+### Relative & Absolute Corrections (L2L3)
 
 
 
