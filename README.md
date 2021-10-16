@@ -61,22 +61,24 @@ In the code run_JRA_cfg_ilias.py:
 
 As the code custom_crab_JEC.py is:
 
-1)	It will create a folder UL2016/crab_Summer20UL16APVv2_FlatPU_V15_recipe/ in the directory you are in (test/).
-2)	The output JRA files will be in the output LFN directory (in this case in /eos/cms/store/group/phys_jetmet/ilias/MCsamples/Summer20UL16APVv2/FlatPU_V15_recipe/ --> Attention: Do not put the /eos/cms/ in front in the LFN directory)
+1)	It will create a folder MyWorkArea/name_related_to_sample/ in the directory you are in (test/).
+2)	The output JRA files will be in the output LFN directory (in this case in /eos/cms/store/group/phys_jetmet/ilias/test/ --> Attention: Do not put the /eos/cms/ in front in the LFN directory)
 
 voms-proxy-init -voms cms \
 crab submit -c custom_crab_JEC.py
 
 To check the status of jobs in crab:
 
-crab status -d UL2016/crab_Summer20UL16APVv2_FlatPU_V15_recipe/
+crab status -d MyWorkArea/name_related_to_sample/
 
 To resubmit jobs if some have failed:
 
-crab resubmit -d UL2016/crab_Summer20UL16APVv2_FlatPU_V15_recipe/
+crab resubmit -d MyWorkArea/name_related_to_sample/
 
-When all jobs are finished, the output JRA root files in eos will be the input ntuples for the JECs.
+When all jobs are finished, the output JRA root files, based on the above custom_crab_JEC.py, will be located in a directory with this format:\
+/eos/cms/store/group/phys_jetmet/ilias/test/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/name/yymmdd_XXXXXX/0000/
 
+These JRA_*.root files are the input ntuples for the MC-truth jet energy corrections.
 
 <a name="PU-reweight"></a>
 ## Instructions on how to create pileup histograms for PU Reweighting
