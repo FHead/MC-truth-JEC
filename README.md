@@ -19,6 +19,8 @@ The code contained in this package is used for creating and analyzing the L1Fast
 <a name="ntuples-miniaod"></a>
 ## Instructions on how to run ntuples from MINIAOD
 
+Setup your CMSSW : 10_6_X is used for Run2 Ultra-legacy processing and Phase 2 L1T TDR samples (10_6_17 for V15 PUPPI tune) , see also here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
+
 mkdir JEC_MCsamples/ \
 cd JEC_MCsamples/ \
 tcsh \
@@ -83,6 +85,8 @@ These JRA_*.root files are the input ntuples for the MC-truth jet energy correct
 <a name="PU-reweight"></a>
 ## Instructions on how to create pileup histograms for PU Reweighting
 
+Setup your CMSSW : 10_5_X is used for Run 2 ultra-legacy calibrations studies , see here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
+
 mkdir JEC/ \
 cd JEC/ \
 tcsh \
@@ -92,7 +96,30 @@ cd CMSSW_10_5_0/src \
 cmsenv \
 git-cms-init \
 git clone https://github.com/izisopou/MC-truth-JEC.git \
+scram b -j 4
 
+In order to later do PU reweighting when deriving and applying the corrections you need to have 2 input root files with the mu (pileup) distribution; one for data and one for the MC. Note that they should have the same binning (we usually use 100 bins from 0 to 100).
+
+**To produce the root file for data:
+
+You need to take the files that are located in the JERC Protolab : \
+https://gitlab.cern.ch/cms-jetmet/JERCProtoLab/-/tree/master/macros/lumi_PU/InputFiles 
+
+cd $CMSSW_BASE/src/ \
+cmsenv \
+pileupCalc.py -i Cert_\*.txt --inputLumiJSON pileup_latest_UL\*.txt --calcMode true --minBiasXsec 69200 --maxPileupBin 100 --numPileupBins 100  MyDataPUHisto.root 
+
+where Cert_\*.txt is the JSON file for the corresponding epoch you want to process (e.g. Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON_nonAPV.txt for the non-APV UL16 data) and pileup_latest_UL\*.txt for the corresponding year.
+
+To produce the root file for MC:
+
+cd $CMSSW_BASE/src/scripts/ \
+root -l \
+[0] .x create_MyHist.C
+
+
+<a name="#JEC"></a>
+## Instructions on how to derive MC-truth JEC
 
 
 
