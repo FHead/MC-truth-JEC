@@ -31,7 +31,7 @@ cmsenv \
 git-cms-init \
 git clone https://github.com/izisopou/MC-truth-JEC.git 
 
-Before compiling you need to remove the unnecessary folder MC-truth-JEC/ from this directory $CMSSW_BASE/src/MC-truth-JEC/JetMETAnalysis/JetAnalyzers/src/ . That is because only 2 folders in between the 2 src/ folders should exist in order for scram to work. To do this:
+Before compiling you need to remove the unnecessary folder "MC-truth-JEC" from this directory $CMSSW_BASE/src/MC-truth-JEC/JetMETAnalysis/JetAnalyzers/src/ . That is because only 2 folders in between the 2 src/ folders should exist in order for scram to work. To do this:
 
 cd $CMSSW_BASE/src/ \
 mv -f MC-truth-JEC/* . \
@@ -112,6 +112,14 @@ mv -f MC-truth-JEC/* . \
 rm -rf MC-truth-JEC \
 scram b -j 4
 
+***Notice (useful for later)*** 
+1) In all the steps of the MC-truth JECs you will be submitting jobs to condor. Once you submit them you can check their status by doing: \
+condor_q \
+For each job you submit, when it is finished, a corresponding root file should appear in eos. Additionally, in the directory $CMSSW_BASE/src/condor/Log/ for each job 3 files will appear: err,log,out. Check the err ones to see if there was an error in your codes that made the jobs crash. If you have a bug somewhere then the output root files in eos will not be created or they will be created empty, so you can also check them by going to the eos directory and doing ls -lh to see the size of the files and if they have closed properly. If the code does not have any bugs then these files should be a few MB each. \
+If there are no bugs and the root files have been created correctly then it happens that condor did not run all jobs (due to technical issues related to condor and not you). Therefore you should always check how many output root files were created (by doing ls | wc -l): they should be the same number as the jobs you submitted. If they are fewer then you can resubmit the jobs (./SubmitStep*.sh as you did in the first time) until all root files are processed. 
+
+2) Every time you do any changes to the codes in $CMSSW_BASE/src/JetMETAnalysis/ you should then compile the codes doing *scram b -j 4*
+
 <a name="#PU-reweight"></a>
 ### Histograms for PU Reweighting
 
@@ -138,6 +146,75 @@ root -l \
 <a name="#L1"></a>
 ### Pileup Offset Corrections (L1)
 
+cd $CMSSW_BASE/src/ \
+cmsenv \
+cd condor/ \
+
+Copy the MyMCPUHisto.root and MyDataPUHisto.root to $CMSSW_BASE/src/condor/Files/
+
+First, you need to determine what jet collection you want to process. The codes in condor/ are written for ak4pfchs but you can easily change for ak8pfchs, ak4puppi, ak8puppi. Go to the $CMSSW_BASE/src/condor/ListRunLumi.cpp script and in L20 change to the jet collection you want. Then do:
+
+make
+
+This will change the unreadable file RunListRunLumi appropriately.
+
+Make sure that in the script $CMSSW_BASE/src/condor/Setup_CMSSW.sh the correct path to the condor/ folder is written.
+
+Determine the input MC samples and output files in eos: \
+Open the $CMSSW_BASE/src/condor/Setup_FileLocation.sh code and write the correct paths to the NoPUFiles (NoPU or EpsilonPU MC) and WithPUFiles (FlatPU MC). Moreover, write the output directories in eos where the output root files in the 4 steps of the MC-truth JECs will appear.
+
+For all steps 
+
+**Step1**
+
+In the first step the events between the NoPU/EpsilonPU and the FlatPU sample are matched one by one: 
+
+./SubmitStep1.sh
+
+This will submit jobs to condor. Once they are done then some text files will appear in the Step1Output in eos, where all the events that are matched are written.
+
+./HarvestStep1.sh
+
+This will take as input the txt files in the Step1Output from eos and will create a file named "MatchedFiles" in the directory $CMSSW_BASE/src/condor/Files/ . In that file all the events that are matched between the NoPU/EpsilonPU and the FlatPU sample will be listed.
+
+**Step2**
+
+In this step, the jets from the matched events will be also matched and the offset will be calculated: offset = jetpT(FlatPU) - jetpT(NoPU/EpsilonPU).\
+First do:
+
+./RunPrepareStep2Submission 1 > SubmitStep2.sh
+
+This takes as input the $CMSSW_BASE/src/condor/Files/MatchedFiles file and rewrites the SubmitStep2.sh code. Open the SubmitStep2.sh code to see how it has changed. It should list the directories for the MC samples where the JRA_\*.root are located. In L3 you should write the full path of where the Setup_FileLocation.sh is located. Then, replace L11 with:
+
+echo "+JobFlavour = testmatch" >> $SubmissionFile
+
+and immediately below add the line:
+
+echo "+request_cpus=3">>$SubmissionFile
+
+The above lines will help the jobs to run quicker.
+
+The SubmitStep2.sh code calls the Step2PUMatching.sh one so open it and modify it appropriately. In turn, the Step2PUMatching.sh code calls the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_match_x.cc. In L40 of the Step2PUMatching.sh make sure it is false (we do not apply any corrections, we want to derive them).
+
+Once you have modified the above codes in your liking, submit the jobs:
+
+./SubmitStep2.sh
+
+In this particular step not all root files are usually created when all jobs are done so resubmit with the above command until all root files in eos are created. Then, open the HarvestStep2.sh code, which in turn calls the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_synchfit_x.cc one. In this code, in L425-443 you determine what fit function should be used (L1Complex, L1Simple, L1SemiSimple) so comment out 2 of them and leave the one to be used. In L640-648 you also determine the range of the 2D fit. In the HarvestStep2.sh code in L14 you define if you want to use ak4 or ak8 in the jet_synchfit_x.cc code.
+
+./HarvestStep2.sh
+
+This code does 2 things. First it hadds the Step2Output files in eos and then it will create the L1 txt file in the directory $CMSSW_BASE/src/condor/Files/ (or the directory you have specified in L9 of the HarvestStep2.sh code), along with some plots concerning the 2D fits.
+
+This hadded root file from which the text file was created contains information for the offset (before you apply any correction to the MC). To plot it do:
+
+cd $CMSSW_BASE/src/ \
+cmsenv \
+jet_synchplot_x -inputDir ./ -algo1 ak4pfchs -algo2 ak4pfchs -outDir ./ -outputFormat .png -fixedRange false -tdr true -npvRhoNpuBinWidth 10 -NBinsNpvRhoNpu 5
+
+where the -inputDir will be the directory where the hadded output_ak4pfchs.root file is located. In the -outDir many .png files will be created, the ones that depict the offset vs pT for the 4 different eta regions and different mu bins are the OffMeantnpuRef_\*.png. The above code calls the $CMSSW_BASE/src/JetMETAnalysis/JetUtilities/src/SynchFittingProcedure.hh. In it, in L430-529 you determine how the offset will be calculated (mean, median or mode) and in L894-1072 how to plot the histograms. 
+
+You are basically done with the L1 corrections, since you have derived the text file **ParallelMCL1_L1FastJet_AK4PFchs.txt** -> this is the most important file. However, you should check the quality of these L1 corrections and if they actually remove the pileup as intended. You have already plotted the offset before (should be non-zero), and you need to do that again, applying now this text file you have produced. For that, you need to repeat the Step2 procedure but now in the Step2PUMatching.sh code in L40 make sure it is true and immediately below add the line -JECpar ParallelMCL1_L1FastJet_AK4PFchs.txt. Then sumbit the jobs again with ./SubmitStep2.sh but make sure *the output root files are in a different location as before so as to not overwrite anything!*. When the jobs are done you should **not** run the HarvestStep2.sh code because you do not want to derive any corrections now. You only need to hadd the root files in eos and now use this new hadded root file as input in order to plot the offset. 
 
 <a name="#L2L3"></a>
 ### Relative & Absolute Corrections (L2L3)
