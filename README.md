@@ -206,7 +206,7 @@ In this particular step not all root files are usually created when all jobs are
 
 This code does 2 things. First it hadds the Step2Output files in eos and then it will create the L1 txt file in the directory $CMSSW_BASE/src/condor/Files/ (or the directory you have specified in L9 of the HarvestStep2.sh code), along with some plots concerning the 2D fits.
 
-This hadded root file from which the text file was created contains information for the offset (before you apply any correction to the MC). To plot it do:
+This hadded root file contains information for the offset (before you apply any correction to the MC). To plot it do:
 
 cd $CMSSW_BASE/src/ \
 cmsenv \
@@ -214,7 +214,7 @@ jet_synchplot_x -inputDir ./ -algo1 ak4pfchs -algo2 ak4pfchs -outDir ./ -outputF
 
 where the -inputDir will be the directory where the hadded output_ak4pfchs.root file is located. In the -outDir many .png files will be created, the ones that depict the offset vs pT for the 4 different eta regions and different mu bins are the OffMeantnpuRef_\*.png. The above code calls the $CMSSW_BASE/src/JetMETAnalysis/JetUtilities/src/SynchFittingProcedure.hh. In it, in L430-529 you determine how the offset will be calculated (mean, median or mode) and in L894-1072 how to plot the histograms. 
 
-You are basically done with the L1 corrections, since you have derived the text file **ParallelMCL1_L1FastJet_AK4PFchs.txt** -> this is the most important file. However, you should check the quality of these L1 corrections and if they actually remove the pileup as intended. You have already plotted the offset before (should be non-zero), and you need to do that again, applying now this text file you have produced. For that, you need to repeat the Step2 procedure but now in the Step2PUMatching.sh code in L40 make sure it is true and immediately below add the line -JECpar ParallelMCL1_L1FastJet_AK4PFchs.txt. Then sumbit the jobs again with ./SubmitStep2.sh but make sure *the output root files are in a different location as before so as to not overwrite anything!*. When the jobs are done you should **not** run the HarvestStep2.sh code because you do not want to derive any corrections now. You only need to hadd the root files in eos and now use this new hadded root file as input in order to plot the offset. 
+You are basically done with the L1 corrections, since you have derived the text file **ParallelMCL1_L1FastJet_AK4PFchs.txt** -> this is the most important file. However, you should check the quality of these L1 corrections and if they actually remove the pileup as intended. You have already plotted the offset (should be non-zero), and you need to do that again, applying now this text file you have produced. For that, you need to repeat the Step2 procedure but now in the Step2PUMatching.sh code in L40 make sure it is true and immediately below add the line -JECpar ParallelMCL1_L1FastJet_AK4PFchs.txt. Then sumbit the jobs again with ./SubmitStep2.sh but make sure *the output root files are in a different location as before so as to not overwrite anything!* When the jobs are done you should **not** run the HarvestStep2.sh code because you do not want to derive any corrections now. You only need to hadd the root files in eos and now use this new hadded root file as input in order to plot the offset again. The offset now should be ~0 since you have applied the ParallelMCL1_L1FastJet_AK4PFchs.txt file in the PU sample.
 
 <a name="#L2L3"></a>
 ### Relative & Absolute Corrections (L2L3)
