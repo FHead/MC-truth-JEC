@@ -162,9 +162,7 @@ This will change the unreadable file RunListRunLumi appropriately.
 Make sure that in the script $CMSSW_BASE/src/condor/Setup_CMSSW.sh the correct path to the condor/ folder is written.
 
 Determine the input MC samples and output files in eos: \
-Open the $CMSSW_BASE/src/condor/Setup_FileLocation.sh code and write the correct paths to the NoPUFiles (NoPU or EpsilonPU MC) and WithPUFiles (FlatPU MC). Moreover, write the output directories in eos where the output root files in the 4 steps of the MC-truth JECs will appear.
-
-For all steps 
+Open the $CMSSW_BASE/src/condor/Setup_FileLocation.sh code and write the correct paths to the NoPUFiles (NoPU or EpsilonPU MC) and WithPUFiles (FlatPU MC). Moreover, write the output directories in eos where the output root files in the 4 steps of the MC-truth JECs will appear. 
 
 **Step1**
 
@@ -201,11 +199,13 @@ Once you have modified the above codes in your liking, submit the jobs:
 
 ./SubmitStep2.sh
 
-In this particular step not all root files are usually created when all jobs are done so resubmit with the above command until all root files in eos are created. Then, open the HarvestStep2.sh code, which in turn calls the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_synchfit_x.cc one. In this code, in L425-443 you determine what fit function should be used (L1Complex, L1Simple, L1SemiSimple) so comment out 2 of them and leave the one to be used. In L640-648 you also determine the range of the 2D fit. In the HarvestStep2.sh code in L14 you define if you want to use ak4 or ak8 in the jet_synchfit_x.cc code.
+In this particular step not all root files are usually created when all jobs are done so resubmit with the above command until all root files in eos are created.
+
+Then, open the HarvestStep2.sh code, which in turn calls the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_synchfit_x.cc one. In this code, in L425-443 you determine what fit function should be used (L1Complex, L1Simple, L1SemiSimple) so comment out 2 of them and leave the one to be used. In L640-648 you also determine the range of the 2D fit. In the HarvestStep2.sh code in L14 you define if you want to use ak4 or ak8 in the jet_synchfit_x.cc code.
 
 ./HarvestStep2.sh
 
-This code does 2 things. First it hadds the Step2Output files in eos and then it will create the L1 txt file in the directory $CMSSW_BASE/src/condor/Files/ (or the directory you have specified in L9 of the HarvestStep2.sh code), along with some plots concerning the 2D fits.
+This code does 2 things. First it hadds the Step2Output files in eos and then it will create the **ParallelMCL1_L1FastJet_AK4PFchs.txt** file in the directory $CMSSW_BASE/src/condor/Files/ (or the directory you have specified in L9 of the HarvestStep2.sh code), along with some plots concerning the 2D fits.
 
 This hadded root file contains information for the offset (before you apply any correction to the MC). To plot it do:
 
@@ -215,13 +215,34 @@ jet_synchplot_x -inputDir ./ -algo1 ak4pfchs -algo2 ak4pfchs -outDir ./ -outputF
 
 where the -inputDir will be the directory where the hadded output_ak4pfchs.root file is located. In the -outDir many .png files will be created, the ones that depict the offset vs pT for the 4 different eta regions and different mu bins are the OffMeantnpuRef_\*.png. The above code calls the $CMSSW_BASE/src/JetMETAnalysis/JetUtilities/src/SynchFittingProcedure.hh. In it, in L430-529 you determine how the offset will be calculated (mean, median or mode) and in L894-1072 how to plot the histograms. 
 
-You are basically done with the L1 corrections, since you have derived the text file **ParallelMCL1_L1FastJet_AK4PFchs.txt** -> this is the most important file. However, you should check the quality of these L1 corrections and if they actually remove the pileup as intended. You have already plotted the offset (should be non-zero), and you need to do that again, applying now this text file you have produced. For that, you need to repeat the Step2 procedure but now in the Step2PUMatching.sh code in L40 make sure it is true and immediately below add the line -JECpar ParallelMCL1_L1FastJet_AK4PFchs.txt. Then sumbit the jobs again with ./SubmitStep2.sh but make sure *the output root files are in a different location as before so as to not overwrite anything!* When the jobs are done you should **not** run the HarvestStep2.sh code because you do not want to derive any corrections now. You only need to hadd the root files in eos and now use this new hadded root file as input in order to plot the offset again. The offset now should be ~0 since you have applied the ParallelMCL1_L1FastJet_AK4PFchs.txt file in the PU sample.
+You are basically done with the L1 corrections, since you have derived the L1 JEC text file. However, you should check the quality of these L1 corrections and if they actually remove the pileup as intended. You have already plotted the offset (should be non-zero), and you need to do that again, applying now this text file you have produced. For that, you need to repeat the Step2 procedure but now in the Step2PUMatching.sh code in L40 make sure it is true and immediately below add the line -JECpar ParallelMCL1_L1FastJet_AK4PFchs.txt. Then sumbit the jobs again with ./SubmitStep2.sh but make sure *the output root files are in a different location as before so as to not overwrite anything!* When the jobs are done you should **not** run the HarvestStep2.sh code because you do not want to derive any corrections now. You only need to hadd the root files in eos and now use this new hadded root file as input in order to plot the offset again. The offset now should be ~0 since you have applied the ParallelMCL1_L1FastJet_AK4PFchs.txt file in the PU sample.
+
+When you plot the offset, you can use the mean, median or mode (gaussian fits) for the offset distribution (SynchFittingProcedure.hh). To replicate what this code does in order to check by hand the gaussian fits point-by-point:
+
+cd $CMSSW_BASE/src/scripts/ \
+root -l \
+[0] .x Plot_GausFit_Offset.C
 
 <a name="#L2L3"></a>
 ### Relative & Absolute Corrections (L2L3)
 
+Edit the $CMSSW_BASE/src/condor/Setup_FileLocation.sh code with the input WithPUFiles which can be either the FlatPU MC that was used for the L1 derivation or the PremixedPU MC. The NoPUFiles is not used for the L2L3 corrections.
 
+**Step3**
 
+In this step the L1 correction txt file is applied to the PU MC and the response histos in bins of eta and pT are created. The SubmitStep3.sh code calls the Step3ApplyL1.sh code which in turn calls the jet_response_analyzer_x.cc code. For PUPPI jets that we do not derive L1 corrections, comment out L19-28 in the Step3ApplyL1.sh code so that the step where the L1 corrections are applied to the MC is skipped.
+
+./SubmitStep3.sh
+
+When all jobs are done edit the HarvestStep3.sh code, which calls the code $CMSSW_BASE/src/JetMETAnalysis/JetUtilities/src/L2Creator.cc. When standard+Gaussian options is specified in L20 of HarvestStep3.sh then the inverse of the median response will be fitted with this function (L1076 of L2Creator.cc) for all 82 eta bins. In L1141-1177 the initial parameters for all the fits are specified. Since in some of the eta bins the fits fail to converge, you can change the set of the initial parameters for specific eta bins in L402-490.
+
+./HarvestStep3.sh
+
+This will hadd the output root file of Step3Output and then do the fits in order to derive the L2L3 corrections, thus creating the **ParallelMCL1_L2Relative_AK4PFchs.txt** file in the directory $CMSSW_BASE/src/condor/Files/, along with the file l2.root that contains the graphs with all fits. When running this command the fit probability for all fits will be printed so you will have to identify which fits have failed, modify the L2Creator.cc code, and rerun until all fits converge and the final txt file has the best quality. 
+
+**Step4**
+
+In this step both JEC text files (L1 + L2L3) are applied to the MC and the response is calculated and plotted as a function of eta and pt. 
 
 <a name="#Corr-Factors"></a>
 ## Instructions on how to plot the correction factors
