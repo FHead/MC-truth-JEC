@@ -242,7 +242,17 @@ This will hadd the output root file of Step3Output and then do the fits in order
 
 **Step4**
 
-In this step both JEC text files (L1 + L2L3) are applied to the MC and the response is calculated and plotted as a function of eta and pt. 
+In this step both JEC text files (L1 + L2L3) are applied to the MC and the response is calculated and plotted as a function of eta and pt. The SubmitStep4.sh code calls the Step4Closure.sh one which in turn calls the jet_correction_analyzer_x.cc. After you edit these codes:
+
+./SubmitStep4.sh
+
+Once all jobs are done edit the HarvestStep4.sh code which calls the $CMSSW_BASE/src/JetMETAnalysis/JetUtilities/src/ClosureMaker.cc code. This code produces plots of the corrected response vs pt and eta, along with root files with the histograms saved in them.
+
+In order to plot the above L1L2L3 closure plot vs pt with the stylistics of the JERC group:
+
+cd $CMSSW_BASE/src/scripts/ \
+cmsenv \
+python PlotL1L2L3ClosureVsPt.py
 
 <a name="#Corr-Factors"></a>
 ## Instructions on how to plot the correction factors
