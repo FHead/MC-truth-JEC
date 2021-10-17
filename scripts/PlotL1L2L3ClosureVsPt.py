@@ -11,8 +11,8 @@ TDR.extraText2  = "Preliminary"
 
 class L1L2L3ClosureVsPt():
     def __init__(self, isDefault = False):
-        self.inputPath = "directory/"
-        self.outputPath = "directory/"
+        self.inputPath = "$CMSSW_BASE/src/condor/Files/"
+        self.outputPath = "$CMSSW_BASE/src/condor/Files/"
         self.fname  = self.inputPath+"ClosureVsRefPt_ak4pfchs_default.root"
         self.years = ["UL16nonAPV", "UL16APV", "UL17", "UL18"]
         self.etabins = ["1.3","2.5","3.0","5.0"]
