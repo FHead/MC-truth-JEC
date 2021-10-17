@@ -4,10 +4,11 @@
 
 - [Overview](#overview)
 - [Instructions on how to run ntuples from MINIAOD](#ntuples-miniaod)
-- [Instructions on how to derive MC-truth JEC](#JEC)
+- [Instructions on how to derive MC-truth JEC and plot closures](#JEC)
 	- [Histograms for PU Reweighting](#PU-reweight)
 	- [Pileup Offset Corrections (L1)](#L1)
 	- [Relative & Absolute Corrections (L2L3)](#L2L3)
+- [Instructions on how to plot the correction factors](#Corr-Factors)
 
 <!-- /MarkdownTOC -->
 
@@ -95,7 +96,7 @@ When all jobs are finished, the output JRA root files, based on the above custom
 These JRA_*.root files are the input ntuples for the MC-truth jet energy corrections.
 
 <a name="JEC"></a>
-## Instructions on how to derive MC-truth JEC
+## Instructions on how to derive MC-truth JEC and plot closures
 
 Setup your CMSSW : 10_5_X is used for Run 2 ultra-legacy calibrations studies , see here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
 
@@ -221,6 +222,9 @@ You are basically done with the L1 corrections, since you have derived the text 
 
 
 
+
+<a name="#Corr-Factors"></a>
+## Instructions on how to plot the correction factors
 
 
 
