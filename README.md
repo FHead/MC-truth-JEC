@@ -119,7 +119,7 @@ condor_q \
 For each job you submit, when it is finished, a corresponding root file should appear in eos. Additionally, in the directory $CMSSW_BASE/src/condor/Log/ for each job 3 files will appear: err,log,out. Check the err ones to see if there was an error in your codes that made the jobs crash. If you have a bug somewhere then the output root files in eos will not be created or they will be created empty, so you can also check them by going to the eos directory and doing ls -lh to see the size of the files and if they have closed properly. If the code does not have any bugs then these files should be a few MB each. \
 If there are no bugs and the root files have been created correctly then it happens that condor did not run all jobs (due to technical issues related to condor and not you). Therefore you should always check how many output root files were created (by doing ls | wc -l): they should be the same number as the jobs you submitted. If they are fewer then you can resubmit the jobs (./SubmitStep*.sh as you did in the first time) until all root files are processed. 
 
-2) Every time you do any changes to the codes in $CMSSW_BASE/src/JetMETAnalysis/ you should then compile the codes doing *scram b -j 4*
+2) Every time you make any changes to the codes in $CMSSW_BASE/src/JetMETAnalysis/ you should then compile the codes doing *scram b -j 4*
 
 <a name="#PU-reweight"></a>
 ### Histograms for PU Reweighting
