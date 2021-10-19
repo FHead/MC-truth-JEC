@@ -274,7 +274,9 @@ cd $CMSSW_BASE/src/ \
 cmsenv \
 jet_draw_corrections_x -algs ak4pfchs -path ./ -outputDir ./ -useL1FasCor true -era ParallelMCL1
 
-where -path is the directory where the ParallelMCL1_L1FastJet_AK4PFchs.txt is located.
+where -path is the directory where the ParallelMCL1_L1FastJet_AK4PFchs.txt is located. Then, with the output root files of the above command you can plot the L1 corrections as a function of rho for a fixed value of pt with the following code:
+
+$CMSSW_BASE/src/scripts/Plot_L1CorrectionsVsRho.C
 
 
 
