@@ -16,9 +16,9 @@
 //
 // Update from Ilias
 // The code as is produces histograms with the corrections vs pT and eta
-// There are 11 lines with the comment "for fixed Pt" that are commented out
-// If you remove their comment out and instead comment out their above line then the corrections vs rho (for fixed pt) instead of pt will
-// be produced
+// There are 11 lines with the comment "for L1 corr. vs rho" that are commented out
+// If you remove their comment out and instead comment out their above line then the L1 corrections vs rho (for a fixed pt value) instead of pt will
+// be produced, running the command with -useL1FasCor true instead of -useL2Cor true
 //
 ///////////////////////////////////////////////////////////////////
 
@@ -357,10 +357,10 @@ TCanvas * getCorrectionVsEtaCanvas(TString algo, FactorizedJetCorrector * jetCor
       TH1F * cc = new TH1F(hstr,hstr,NETA,veta);
       for (int b = 1; b <= cc->GetNbinsX(); b++){
 	jetCorr->setJetPt(PtVals[c]);
-	//jetCorr->setJetPt(fixedRho);	//for fixed Pt
+	//jetCorr->setJetPt(fixedRho);	//for L1 corr. vs rho
 	jetCorr->setJetEta(cc->GetBinCenter(b));
     jetCorr->setRho(fixedRho);
-    //jetCorr->setRho(PtVals[c]);	//for fixed Pt
+    //jetCorr->setRho(PtVals[c]);	//for L1 corr. vs rho
     jetCorr->setJetA(TMath::Pi()*TMath::Power(JetInfo(algo).coneSize/10.0,2));
 	double cor = jetCorr->getCorrection();
 	if (std::isnan((double)cor) || std::isinf((double)cor) ){
@@ -390,7 +390,7 @@ TCanvas * getCorrectionVsEtaCanvas(TString algo, FactorizedJetCorrector * jetCor
 	ptstr.Form("p_{T}=%f GeV",PtVals[c]);
       else 
 	ptstr.Form("p_{T}=%.0f GeV",PtVals[c]);
-	//ptstr.Form("#rho=%.0f GeV",PtVals[c]);	//for fixed Pt
+	//ptstr.Form("#rho=%.0f GeV",PtVals[c]);	//for L1 corr. vs rho
 	
       TPaveText * pave = new TPaveText(0.3,0.7,0.8,0.9,"NDC");
       //pave->AddText("APV UL 2016");	
@@ -402,7 +402,7 @@ TCanvas * getCorrectionVsEtaCanvas(TString algo, FactorizedJetCorrector * jetCor
       pave->SetTextSize(0.08);
 
       ove->cd(c+1);
-      cc->SetLineColor(kRed);	
+      cc->SetLineColor(kBlack);	
       //cc->SetFillColor(30);
       //cc->SetFillStyle(3001);
       cc->Draw();
@@ -947,7 +947,7 @@ EtaVals.push_back(5.191);
 
   //Create the canvas with multiple pads
   TString ss("CorrectionVsPt_Overview");
-  //TString ss("CorrectionVsRho_Overview");	//for fixed Pt
+  //TString ss("CorrectionVsRho_Overview");	//for L1 corr. vs rho
   ss += suffix;
   TCanvas *ovp = new TCanvas(ss,ss,1200,800);
 //  ovp->Divide(6,4);
@@ -961,15 +961,15 @@ EtaVals.push_back(5.191);
 
       //Create and fill the histo
       TString hstr; hstr.Form("PtSF_%d",c);
-      //TString hstr; hstr.Form("RhoSF_%d",c);	//for fixed Pt
+      //TString hstr; hstr.Form("RhoSF_%d",c);	//for L1 corr. vs rho
       TH1F * cc = new TH1F(hstr,hstr,NPtBinsHLT,vpt_HLT);
-      //TH1F * cc = new TH1F(hstr,hstr,70,0,70);	//for fixed Pt
+      //TH1F * cc = new TH1F(hstr,hstr,70,0,70);	//for L1 corr. vs rho
       for (int b = 1; b <= cc->GetNbinsX(); b++){
 	jetCorr->setJetPt(cc->GetBinCenter(b));
-	//jetCorr->setJetPt(fixedRho);	//for fixed Pt
+	//jetCorr->setJetPt(fixedRho);	//for L1 corr. vs rho
 	jetCorr->setJetEta(EtaVals[c]);
     jetCorr->setRho(fixedRho);
-    //jetCorr->setRho(cc->GetBinCenter(b));	//for fixed Pt
+    //jetCorr->setRho(cc->GetBinCenter(b));	//for L1 corr. vs rho
     jetCorr->setJetA(TMath::Pi()*TMath::Power(JetInfo(algo).coneSize/10.0,2));
 	double cor = jetCorr->getCorrection();
 	if (std::isnan((double)cor) ||  std::isinf((double)cor) ){
@@ -985,7 +985,7 @@ EtaVals.push_back(5.191);
 	cc->SetBinError(b,0.);
       }//for pt bins
       cc->GetXaxis()->SetTitle("p_{T}^{Reco}");
-      //cc->GetXaxis()->SetTitle("#rho");	//for fixed Pt
+      //cc->GetXaxis()->SetTitle("#rho");	//for L1 corr. vs rho
       cc->GetXaxis()->SetRangeUser(15.,4000.);
       cc->GetYaxis()->SetTitle("Corr. Factor");
 //    cc->GetXaxis()->SetRangeUser(20.,2000.);
@@ -1005,10 +1005,10 @@ EtaVals.push_back(5.191);
       pave->SetTextSize(0.08);
 
       (ovp->cd(c+1))->SetLogx(1);
-      //ovp->cd(c+1);	//for fixed Pt
+      //ovp->cd(c+1);	//for L1 corr. vs rho
       //cc->SetFillColor(30);
       //cc->SetFillStyle(3001);
-      cc->SetLineColor(kRed);
+      cc->SetLineColor(kBlack);
       cc->SetLineWidth(2);
       cc->Draw();
       pave->Draw();
@@ -1479,7 +1479,7 @@ FactorizedJetCorrector * getFactorizedCorrector(TString algo, CommandLine & cl, 
   bool    useL3Cor     = cl.getValue<bool>   ("useL3Cor"     , false   );
   bool    useL2L3ResCor= cl.getValue<bool>   ("useL2L3ResCor", false   );
           fixedRho     = cl.getValue<double> ("fixedRho"     , 10.0    );
-	  //fixedRho     = cl.getValue<double> ("fixedRho"     , 200.0    );	//for fixed Pt
+	  //fixedRho     = cl.getValue<double> ("fixedRho"     , 100.0    );	//for L1 corr. vs rho
 
   if (era.length()==0) {
     cout<<"ERROR flag -era must be specified"<<endl;
