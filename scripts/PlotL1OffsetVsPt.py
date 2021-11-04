@@ -11,6 +11,7 @@ TDR.extraText2  = "Preliminary"
 
 class L1OffsetVsPt():
     def __init__(self, eta):
+	self.doCleaning = True
         self.inputPath = "InputFiles/"
         self.outputPath = "Pdfs/"
         self.fname  = self.inputPath+"L1ClosureVsPt_AK4CHS_default.root" #-> L1OffsetVsPt_AK4CHS_default.root for uncorrected offset
@@ -78,20 +79,17 @@ class L1OffsetVsPt():
             canv.SetLogx(True)
             leg = tdrLeg(0.60,0.70,0.89,0.89, textSize=0.04)
 	    for bin in self.mubins:
-
 		#for UL16 show bins of mu up to 40 (no events in data with mu>40 and for the APV MC we have a mu<40 cut in the JEC derivation)
 		if ((bin=="40" or bin=="50") and (year=="UL16APV" or year=="UL16nonAPV")): continue
-
                 color  = self.Hists[bin]["color"]
                 marker = self.Hists[bin]["marker"]
                 self.Hists[bin]["hist"] = f_.Get(self.Hists[bin]["hname"])
                 self.Hists[bin]["hist"].SetDirectory(0)
                 self.Hists[bin]["hist"].SetMarkerSize(self.Hists[bin]["msize"])
-
-                for x in range(1,self.Hists[bin]["hist"].GetNbinsX()+1):
-                    	if self.Hists[bin]["hist"].GetBinCenter(x)<15: self.Hists[bin]["hist"].SetBinContent(x,-999) #<30 for AK8
-			if self.Hists[bin]["hist"].GetBinError(x)>2: self.Hists[bin]["hist"].SetBinContent(x,-999)
-                   	
+		if self.doCleaning:
+                    for x in range(1,self.Hists[bin]["hist"].GetNbinsX()+1):
+                    	if self.Hists[bin]["hist"].GetBinCenter(x)<15: self.Hists[bin]["hist"].SetBinContent(x,-999)
+			if self.Hists[bin]["hist"].GetBinError(x)>2: self.Hists[bin]["hist"].SetBinContent(x,-999)                  	
                 tdrDraw(self.Hists[bin]["hist"], "P", marker=marker, mcolor=color )
                 leg.AddEntry(self.Hists[bin]["hist"], self.Hists[bin]["legend"], "lp")
 
