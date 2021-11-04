@@ -48,8 +48,8 @@ class L1L2L3ClosureVsPt():
     def Plot(self):
         PlotXMin = 11
         PlotXMax = 5500
-        PlotYMin = 0.97
-        PlotYMax = 1.03
+        PlotYMin = 0.96
+        PlotYMax = 1.04
         for year in self.years:
             TDR.cms_lumi_TeV = TDR.commonScheme["legend"][year]+" Legacy"
             TDR.extraText3 = []
@@ -72,15 +72,9 @@ class L1L2L3ClosureVsPt():
                 self.Hists[bin]["hist"].SetDirectory(0)
                 self.Hists[bin]["hist"].SetMarkerSize(self.Hists[bin]["msize"])
                 if self.doCleaning:
-                    print ("FIXME: Is cleaning really needed?")
-                    #Temp fix: Need to improve closure at high pt due to stat
                     for x in range(1,self.Hists[bin]["hist"].GetNbinsX()+1):
-                        if self.Hists[bin]["hist"].GetBinCenter(x)>4000: self.Hists[bin]["hist"].SetBinContent(x,0)
+                        if self.Hists[bin]["hist"].GetBinCenter(x)<15: self.Hists[bin]["hist"].SetBinContent(x,0)
                         if self.Hists[bin]["hist"].GetBinError(x)>0.015: self.Hists[bin]["hist"].SetBinContent(x,0)
-                        if self.Hists[bin]["hist"].GetBinCenter(x)>3000 and year=="UL16APV" and bin=="2.5": self.Hists[bin]["hist"].SetBinContent(x,0)
-                        if self.Hists[bin]["hist"].GetBinContent(x)==0: continue
-                        if self.Hists[bin]["hist"].GetBinError(x)/self.Hists[bin]["hist"].GetBinContent(x)>0.01: self.Hists[bin]["hist"].SetBinContent(x,0)
-
                 tdrDraw(self.Hists[bin]["hist"], "P", marker=marker, mcolor=color )
                 leg.AddEntry(self.Hists[bin]["hist"], self.Hists[bin]["legend"], "lp")
 
