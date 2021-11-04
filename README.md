@@ -223,6 +223,11 @@ cd $CMSSW_BASE/src/scripts/ \
 root -l \
 [0] .x Plot_GausFit_Offset.C
 
+**Note**: Running the jet_synchplot_x.cc script will produce the offset plots, but it will also produce a root file with the histograms saved. You can use that root file as an input for the following plotting script that implements all JERC stylistics:
+
+cmsenv\
+python scripts/PlotL1OffsetVsPt.py
+
 <a name="#L2L3"></a>
 ### Relative & Absolute Corrections (L2L3)
 
