@@ -425,27 +425,27 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
   else if(functionType=="ak4") {
     if(!pari_set) {
 //    pari = {15,1,-1,5,0,0};	//for complex
-      pari = {5,1};		//for simple
-//    pari = {5,1,0.1};		//for semi simple
+//    pari = {5,1};		//for simple
+      pari = {5,1,0.1};		//for semi simple
       pari_set = true;
     }
 //    function = "[0]+[1]*(x-20.0)+[2]*log(y/30.0)+[3]*pow(log(y/30.0),2)+[4]*(x-20.0)*log(y/30.0)+[5]*(x-20.0)*pow(log(y/30.0),2)";	//complex parametrization
-      function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
-//    function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization
+//    function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
+      function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization
   }
 
   else if(functionType=="ak8") {
     if(!pari_set) {
 //    pari = {15,1,-1,5,0,0};
-//    pari = {15,1,-1};
+      pari = {15,1,-1};
 //    pari = {15,1,-1,0,0};
-      pari = {5,1};
+//    pari = {5,1};
       pari_set = true;
     }
 //  function = "[0]+[1]*(x-20.0)+[2]*log(y/90.0)+[3]*pow(log(y/90.0),2)+[4]*(x-20.0)*log(y/90.0)+[5]*(x-20.0)*pow(log(y/90.0),2)"; 
-//  function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization 
+    function = "[1]*(x-[0])*(1.+[2]*log(y/15.))";	//semi simple parametrization 
 //  function = "[1]*(x-[0])*(1.+[2]*log(y/15.))+[3]*x*y+[4]*x*pow(y,0.6)";	//modified semi simple for APV UL2016 by Mikko
-    function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
+//  function = "[1]*(x-[0])*pow(y,0)";	//simple parametrization
   }
 
   else if(functionType=="ak4_test") {
@@ -638,8 +638,8 @@ TF2 * doGraphFitting(TGraph2DErrors * graph, bool highPU, string functionType, i
       //f4 = new TF2("f4",function, 5,50,10,3000);
 
       if (functionType=="ak4") {
-      //f4->SetRange(0,30,70,100);	//for simple parametrization, fits for pT:30-100GeV
-      f4->SetRange(0,8,70,6500);	//for complex and semi simple parametrization, fits for pT:8-6500GeV
+      //f4->SetRange(0,30,70,100);	
+      f4->SetRange(0,8,70,6500);	//fitting range-> pt:8-6500 GeV, rho:0-70 GeV
       }
 
       if (functionType=="ak8") {
