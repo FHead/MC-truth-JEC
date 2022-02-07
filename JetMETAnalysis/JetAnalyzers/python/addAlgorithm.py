@@ -387,9 +387,9 @@ def addAlgorithm(process, alg_size_type_corr, Defaults, reco, doProducer):
             process.load('CommonTools.PileupAlgos.Puppi_cff') #main config
             process.load('JetMETAnalysis.JetAnalyzers.customizePuppiTune_cff_V15') #apply V15 recipe on top
             #puppi.candName = cms.InputTag("particleFlow")
-            #80x change
-            puppiCentral[0].applyLowPUCorr = cms.bool(False)
-            puppiForward[0].applyLowPUCorr = cms.bool(False)
+            #applyLowPUCorr must be True for CMSSW>=9_0_X and tune>=v11 (it is by default True inside Puppi_cff)
+            #puppiCentral[0].applyLowPUCorr = cms.bool(True)
+            #puppiForward[0].applyLowPUCorr = cms.bool(True)
             puppi.vertexName = "offlineSlimmedPrimaryVertices"
             
             UpdatePuppiTuneV15(process) 
