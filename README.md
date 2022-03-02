@@ -262,18 +262,18 @@ python PlotL1L2L3ClosureVsPt.py
 <a name="#Corr-Factors"></a>
 ## Instructions on how to plot the correction factors
 
-The JEC text file ParallelMCL1_L2Relative_AK4PFchs.txt can be used as input file in order to plot the correction factors as a function of eta and pt. These L2L3 correction factors have been derived while the L1 text file is applied to the MC so they can be considered as the overall correction factors of the MC-truth JECs.
+The two JEC text files ParallelMCL1_L1FastJet_AK4PFchs.txt and ParallelMCL1_L2Relative_AK4PFchs.txt can be used as input files in order to plot the overall MC-truth correction factors as a function of eta and pt.
 
 cd $CMSSW_BASE/src/ \
 cmsenv \
-jet_draw_corrections_x -algs ak4pfchs -path ./ -outputDir ./ -useL2Cor true -era ParallelMCL1
+jet_draw_corrections_x -algs ak4pfchs -path ./ -outputDir ./ -useL1FasCor true -useL2Cor true -era ParallelMCL1
 
-where -path is the directory where the ParallelMCL1_L2Relative_AK4PFchs.txt is located. This command will produce some plots in the outputDir along with a root file where the histograms of the corrections vs eta and pt are saved. These kind of root files can be used as input for the following plotting scripts:
+where -path is the directory where the two text files are located. This command will produce some plots in the outputDir along with a root file where the histograms of the corrections vs eta and pt are saved. These kind of root files can be used as input for the following plotting scripts:
 
 $CMSSW_BASE/src/scripts/Plot_CorrectionsVsEtaPt.C \
 $CMSSW_BASE/src/scripts/Plot_CorrectionsVsEtaPt_Comparison_withRatios.C 
 
-Finally, the L1 corrections can be also plotted as a function of rho. For this you need to edit the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_draw_corrections_x.cc code, based on the instructions in the beginning of the code. Then do:
+Finally, only the L1 corrections can be also plotted as a function of rho. For this you need to edit the $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/bin/jet_draw_corrections_x.cc code, based on the instructions in the beginning of the code. Then do:
 
 cd $CMSSW_BASE/src/ \
 cmsenv \
