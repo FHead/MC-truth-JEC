@@ -55,6 +55,13 @@ These new .py files are modified so as to not give errors with python3:
 3)add parentheses in print commands
 4)list(genJetsDict.keys()).index(alg_size_type) instead of genJetsDict.keys().index(alg_size_type) 
 
+Additionally, in the run_JRA_cfg_MCtruth.py file we have replaced:
+
+process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
+
+with:
+
+process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 
 -----------
 
