@@ -6,7 +6,7 @@ config.General.workArea = 'MyWorkArea'
 
 config.section_("JobType")
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'run_JRA_cfg_ilias.py'
+config.JobType.psetName = 'run_JRA_cfg_MCtruth.py'
 config.JobType.allowUndistributedCMSSW = True
 #config.JobType.inputFiles = ['']
 
