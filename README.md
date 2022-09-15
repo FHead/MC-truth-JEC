@@ -18,23 +18,22 @@
 The code contained in this package is used for creating and analyzing the L1FastJet and L2Relative MC truth jet energy corrections (JEC). The code is used by the Jet Energy Resolution and Corrections (JERC) subgroup. This is a dedicated workflow for the MC-truth jet energy corrections used by the Athens group. The main code is located at https://github.com/cms-jet/JetMETAnalysis .
 
 <a name="ntuples-miniaod"></a>
-## Instructions on how to run ntuples from MINIAOD
+## Instructions on how to run ntuples from RECO with CMSSW_12_4_8
 
-Setup your CMSSW : 10_6_X is used for Run2 Ultra-legacy processing and Phase 2 L1T TDR samples (10_6_17 for V15 PUPPI tune) , see also here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
+Setup your CMSSW : 12_4_8 is used for Run3 private Kaya MC samples, see also here https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWhichRelease#DifferentReleases .
 
 mkdir JEC_MCsamples/ \
 cd JEC_MCsamples/ \
-tcsh \
-setenv SCRAM_ARCH slc7_amd64_gcc700 \
-cmsrel CMSSW_10_6_17 \
-cd CMSSW_10_6_17/src \
+export SCRAM_ARCH=el8_amd64_gcc10 \
+cmsrel CMSSW_12_4_8 \
+cd CMSSW_12_4_8/src \
 cmsenv \
-git clone https://github.com/izisopou/MC-truth-JEC.git .
+git clone git@github.com:FHead/MC-truth-JEC.git .
 
 Then compile:
 
 cd $CMSSW_BASE/src/ \
-scram b -j 4 
+scram b -j 8 
 
 Once compiling the codes is done with no problems:
 
@@ -42,11 +41,10 @@ cd $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/test/
 
 Before submitting jobs to crab run a local test first:
 
-In the code run_JRA_cfg_ilias.py:
+In the code run_JRA_cfg.py:
 
-1)  In L51 put the correct Global Tag. Find the sample in DAS, click on it and then click "Configs".
-2)	In L69 put the number of events to process (something small as a test, for example 100 or 1000). \
-3)	In L79 put one of the .root files of the sample in DAS for the test run to process. Find the sample in DAS and click in the label "Files". Then take one of the root files and add root://cms-xrd-global.cern.ch/ in front of the path.
+(1) In L69 put the number of events to process (something small as a test, for example 100 or 1000). \
+(2) In L79 put one of the .root files of the sample in DAS for the test run to process. Find the sample in DAS and click in the label "Files". Then take one of the root files and add root://cms-xrd-global.cern.ch/ in front of the path.
 
 This test will produce a file named JRA.root in the directory you are in, containing these 100 or 1000 events you processed. You can change the name of this output file in L96.
 
@@ -54,7 +52,7 @@ To run the test:
 
 cmsenv \
 voms-proxy-init -voms cms \
-cmsRun run_JRA_cfg_ilias.py
+cmsRun run_JRA_cfg.py
 
 If there are no errors and the JRA.root is produced correctly (open it to check the tree inside it) then you are good to go.
 
@@ -62,7 +60,7 @@ Submit jobs to crab:
 
 cd $CMSSW_BASE/src/JetMETAnalysis/JetAnalyzers/test/
 
-In the code run_JRA_cfg_ilias.py:
+In the code run_JRA_cfg.py:
 
 1)	In L69 put as number of events -1 (this means run all the events in the sample).
 2)	In L79 it will not matter what you have written because it will instead read the input config file from the custom_crab.py code so no need to change anything here.
@@ -87,6 +85,8 @@ When all jobs are finished, the output JRA root files, based on the above custom
 /eos/cms/store/group/phys_jetmet/ilias/test/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/name/yymmdd_hhmmss/0000/
 
 These JRA_*.root files are the input ntuples for the MC-truth jet energy corrections.
+
+<!--
 
 <a name="JEC"></a>
 ## Instructions on how to derive MC-truth JEC and plot closures
@@ -277,7 +277,7 @@ where -path is the directory where the ParallelMCL1_L1FastJet_AK4PFchs.txt is lo
 $CMSSW_BASE/src/scripts/Plot_L1CorrectionsVsRho.C
 
 
-
+-->
 
 
 
