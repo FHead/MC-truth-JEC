@@ -3,12 +3,14 @@
 <!-- MarkdownTOC depth=0 -->
 
 - [Overview](#overview)
-- [Instructions on how to run ntuples from MINIAOD](#ntuples-miniaod)
+- [Instructions on how to run ntuples from RECO with CMSSW_12_4_8](#ntuples-miniaod)
+<!--
 - [Instructions on how to derive MC-truth JEC and plot closures](#JEC)
 	- [Histograms for PU Reweighting](#PU-reweight)
 	- [Pileup Offset Corrections (L1)](#L1)
 	- [Relative & Absolute Corrections (L2L3)](#L2L3)
 - [Instructions on how to plot the correction factors](#Corr-Factors)
+-->
 
 <!-- /MarkdownTOC -->
 
