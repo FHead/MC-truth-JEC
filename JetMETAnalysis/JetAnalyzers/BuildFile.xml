@@ -17,7 +17,7 @@
 <use   name="DataFormats/Common"/>
 <use   name="DataFormats/PatCandidates"/>
 <use   name="SimDataFormats/GeneratorProducts"/>
-<use   name="SimDataFormats/JetMatching"/>
+<use   name="DataFormats/JetMatching"/>
 <use   name="PhysicsTools/Utilities"/>
 <use   name="root"/>
 <use   name="rootmath"/>

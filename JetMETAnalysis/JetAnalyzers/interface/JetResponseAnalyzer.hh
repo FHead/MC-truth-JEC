@@ -42,7 +42,7 @@
 
 #include "JetMETCorrections/Objects/interface/JetCorrector.h"
 
-#include "SimDataFormats/JetMatching/interface/JetMatchedPartons.h"
+#include "DataFormats/JetMatching/interface/JetMatchedPartons.h"
 #include "SimDataFormats/GeneratorProducts/interface/GenEventInfoProduct.h"
 #include "SimDataFormats/PileupSummaryInfo/interface/PileupSummaryInfo.h"
 
@@ -104,7 +104,7 @@ private:
   edm::EDGetTokenT<vector<PileupSummaryInfo> > srcPileupInfo_;
   edm::EDGetTokenT<PFCandidateView> srcPFCandidates_;
   edm::EDGetTokenT<std::vector<edm::FwdPtr<reco::PFCandidate> > > srcPFCandidatesAsFwdPtr_;
-  edm::EDGetTokenT<vector<pat::PackedGenParticle> > srcGenParticles_;
+  edm::EDGetTokenT<vector<reco::GenParticle> > srcGenParticles_;
 
   std::string   jecLabel_;
   
