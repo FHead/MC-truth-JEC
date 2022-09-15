@@ -29,14 +29,7 @@ setenv SCRAM_ARCH slc7_amd64_gcc700 \
 cmsrel CMSSW_10_6_17 \
 cd CMSSW_10_6_17/src \
 cmsenv \
-git-cms-init \
-git clone https://github.com/izisopou/MC-truth-JEC.git 
-
-Before compiling you need to remove the unnecessary folder "MC-truth-JEC" from this directory $CMSSW_BASE/src/MC-truth-JEC/JetMETAnalysis/JetAnalyzers/src/ . That is because only 2 folders in between the 2 src/ folders should exist in order for scram to work. To do this:
-
-cd $CMSSW_BASE/src/ \
-mv -f MC-truth-JEC/* . \
-rm -rf MC-truth-JEC 
+git clone https://github.com/izisopou/MC-truth-JEC.git .
 
 Then compile:
 
