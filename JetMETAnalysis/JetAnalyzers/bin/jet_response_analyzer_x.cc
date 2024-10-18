@@ -1457,7 +1457,7 @@ int main(int argc,char**argv)
         const Long64_t ientry = el->GetEntry(ievt);
         tree->GetEntry(ientry);
 
-        float mu = (NpuNotMu) ? JRAEvt->npus->at(itInd) : JRAEvt->tnpus->at(itInd);
+        float mu = 0; // (NpuNotMu) ? JRAEvt->npus->at(itInd) : JRAEvt->tnpus->at(itInd);
         float rho = JRAEvt->rho;
         float rhoPU = (GRhoPU) ? JRAEvt->gpudensity : JRAEvt->pudensity;
         float pthat = JRAEvt->pthat;
@@ -1503,11 +1503,11 @@ int main(int argc,char**argv)
             continue;
           }
 
-          if (!pileup_cut(itlow,ithigh,earlyootlow,earlyoothigh,lateootlow,lateoothigh,
-                          totalootlow,totaloothigh,JRAEvt->npus,JRAEvt->bxns)) {
-            if(verbose) cout << "WARNING::Failed pileup cut!" << endl;
-            continue;
-          }
+          // if (!pileup_cut(itlow,ithigh,earlyootlow,earlyoothigh,lateootlow,lateoothigh,
+          //                 totalootlow,totaloothigh,JRAEvt->npus,JRAEvt->bxns)) {
+          //   if(verbose) cout << "WARNING::Failed pileup cut!" << endl;
+          //   continue;
+          // }
 
           float eta    =
             (binseta.size()&&binseta.front()>=0.)?std::abs(JRAEvt->jteta->at(iref)):JRAEvt->jteta->at(iref);
@@ -1554,10 +1554,10 @@ int main(int argc,char**argv)
           }
           else
              flavorWeight *= weight;
-          if(!MCPUReWeighting.IsNull() && !DataPUReWeighting.IsNull()) {
-             double LumiWeight = LumiWeights_.weight(JRAEvt->tnpus->at(itIndex(JRAEvt->bxns)));
-             weight *= LumiWeight;
-          }
+          // if(!MCPUReWeighting.IsNull() && !DataPUReWeighting.IsNull()) {
+          //    double LumiWeight = LumiWeights_.weight(JRAEvt->tnpus->at(itIndex(JRAEvt->bxns)));
+          //    weight *= LumiWeight;
+          // }
 
           if (eta>=etabarrelmin&&eta<=etabarrelmax) {
             if (dorefpt) {
