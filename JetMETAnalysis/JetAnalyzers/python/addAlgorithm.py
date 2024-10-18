@@ -1,5 +1,10 @@
 import FWCore.ParameterSet.Config as cms
 
+
+print('########################################')
+print('NOTICE: addAlgorithm.py has JEC disabled')
+print('########################################')
+
 ################################################################################
 ## filter final state partons (define globaly)
 ################################################################################
@@ -17,7 +22,7 @@ partons = cms.EDProducer('PartonSelector',
 from JetMETAnalysis.JetAnalyzers.JetReconstruction_cff import *
 from JetMETAnalysis.JetAnalyzers.TauReconstruction_cff import *
 from JetMETAnalysis.JetAnalyzers.JPTReconstruction_cff import *
-from JetMETAnalysis.JetAnalyzers.JetCorrection_cff     import *
+# from JetMETAnalysis.JetAnalyzers.JetCorrection_cff     import *
 # from RecoTauTag.TauTagTools.tauDecayModes_cfi          import *
 from CommonTools.PileupAlgos.Puppi_cff import *    #main config file (it includes the default PUPPI tune of the CMSSW)
 from JetMETAnalysis.JetAnalyzers.customizePuppiTune_cff_V15 import * #customized config (recipe) to apply on top of the main config so as to use the V15 tune
@@ -58,24 +63,24 @@ for ca in stdClusteringAlgorithms:
             recJetsDict[alg_size_type] = (tmpString,eval(tmpString))
 
             ## Corrected Jets
-            for cl in stdCorrectionLevels :
-                if ca == 'kt': continue
-                if jt == 'calo' and not r in [4,7]: continue
-                alg_size_type_corr = alg_size_type+cl
-                if jt == 'calo' :
-                    tmpString = str(ca)+str(r)+str(jt).capitalize()+'Jets'+str(stdCorrectionLevels[cl])
-                else :
-                    tmpString = str(ca)+str(r)+str(jt).upper()+'Jets'+str(stdCorrectionLevels[cl])
-                corrJetsDict[alg_size_type_corr] = (tmpString,eval(tmpString))
+            # for cl in stdCorrectionLevels :
+            #     if ca == 'kt': continue
+            #     if jt == 'calo' and not r in [4,7]: continue
+            #     alg_size_type_corr = alg_size_type+cl
+            #     if jt == 'calo' :
+            #         tmpString = str(ca)+str(r)+str(jt).capitalize()+'Jets'+str(stdCorrectionLevels[cl])
+            #     else :
+            #         tmpString = str(ca)+str(r)+str(jt).upper()+'Jets'+str(stdCorrectionLevels[cl])
+            #     corrJetsDict[alg_size_type_corr] = (tmpString,eval(tmpString))
 
 ## Extra JPT Collections
 stdGenJetsDict['ak4jpt']     = 'ak4GenJets'
 genJetsDict['ak4jpt']        = ('ak4GenJetsNoNu',       ak4GenJetsNoNu)
 stdRecJetsDict['ak4jpt']     = 'ak4JPTJets'
 recJetsDict['ak4jpt']        = ('ak4JPTJets',           ak4JPTJets)
-corrJetsDict['ak4jptl1']     = ('ak4JPTJetsL1',         ak4JPTJetsL1)
-corrJetsDict['ak4jptl2l3']   = ('ak4JPTJetsL2L3',       ak4JPTJetsL2L3)
-corrJetsDict['ak4jptl1l2l3'] = ('ak4JPTJetsL1FastL2L3', ak4JPTJetsL1FastL2L3)
+# corrJetsDict['ak4jptl1']     = ('ak4JPTJetsL1',         ak4JPTJetsL1)
+# corrJetsDict['ak4jptl2l3']   = ('ak4JPTJetsL2L3',       ak4JPTJetsL2L3)
+# corrJetsDict['ak4jptl1l2l3'] = ('ak4JPTJetsL1FastL2L3', ak4JPTJetsL1FastL2L3)
 '''
 ## Extra TRK Jet Collections
 stdGenJetsDict['ak5trk'] = 'ak5GenJets'
@@ -257,10 +262,10 @@ def addAlgorithm(process, alg_size_type_corr, Defaults, reco, doProducer):
     except ValueError:
         raise ValueError("Invalid jet configuration: " + alg_size_type)
 
-    try:
-        correctl2l3 and corrJetsDict.keys().index(alg_size_type_corr)
-    except ValueError:
-        raise ValueError("Invalid jet correction: " + alg_size_type_corr)
+    # try:
+    #     correctl2l3 and corrJetsDict.keys().index(alg_size_type_corr)
+    # except ValueError:
+    #     raise ValueError("Invalid jet correction: " + alg_size_type_corr)
 
     ## reference (genjet) kinematic selection
     refPtEta = cms.EDFilter('EtaPtMinCandViewRefSelector',
@@ -290,70 +295,70 @@ def addAlgorithm(process, alg_size_type_corr, Defaults, reco, doProducer):
     #############################
 
     ## correct jets
-    corrLabel = ''
-    if correctl1 or correctl2l3:
-        process.load('JetMETAnalysis.JetAnalyzers.JetCorrection_cff')
-        (corrLabel, corrJets) = corrJetsDict[alg_size_type_corr]
-        setattr(process, corrLabel, corrJets)
-        sequence = cms.Sequence(eval(corrLabel.replace("Jets","")+"CorrectorChain") * corrJets * sequence)
+    # corrLabel = ''
+    # if correctl1 or correctl2l3:
+    #     process.load('JetMETAnalysis.JetAnalyzers.JetCorrection_cff')
+    #     (corrLabel, corrJets) = corrJetsDict[alg_size_type_corr]
+    #     setattr(process, corrLabel, corrJets)
+    #     sequence = cms.Sequence(eval(corrLabel.replace("Jets","")+"CorrectorChain") * corrJets * sequence)
 
     ## add pu density calculation
-    if not correctl1 and not correctl1off:
-        if type == 'CaloHLT': #added 02/15/2012
-            process.kt6CaloJets = kt6CaloJets
-            process.kt6CaloJets.doRhoFastjet = True
-            process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6CaloJetParameters.Ghost_EtaMax.value()
-            process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6CaloJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6CaloJets * sequence)
-        elif type == 'PFchsHLT':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
-        elif type == 'PFHLT':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
-    elif correctl1 and not correctl1off:  #modified 10/10/2011
-        if type == 'CaloHLT': #added 02/15/2012
-            process.kt6CaloJets = kt6CaloJets
-            process.kt6CaloJets.doRhoFastjet = True
-            process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6CaloJets * sequence)
-        elif type == 'Calo' and reco:
-            process.kt6CaloJets = kt6CaloJets
-            process.kt6CaloJets.doRhoFastjet = True
-            process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6CaloJetParameters.Ghost_EtaMax.value()
-            process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6CaloJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6CaloJets * sequence)
-        elif type == 'PFchs':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
-        elif type == 'PFHLT':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
-        elif type == 'PFchsHLT':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
-        elif type == 'PF':
-            process.kt6PFJets = kt6PFJets
-            process.kt6PFJets.doRhoFastjet = True
-            process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
-            process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
-            sequence = cms.Sequence(process.kt6PFJets * sequence)
+    # if not correctl1 and not correctl1off:
+    #     if type == 'CaloHLT': #added 02/15/2012
+    #         process.kt6CaloJets = kt6CaloJets
+    #         process.kt6CaloJets.doRhoFastjet = True
+    #         process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6CaloJetParameters.Ghost_EtaMax.value()
+    #         process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6CaloJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6CaloJets * sequence)
+    #     elif type == 'PFchsHLT':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
+    #     elif type == 'PFHLT':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
+    # elif correctl1 and not correctl1off:  #modified 10/10/2011
+    #     if type == 'CaloHLT': #added 02/15/2012
+    #         process.kt6CaloJets = kt6CaloJets
+    #         process.kt6CaloJets.doRhoFastjet = True
+    #         process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6CaloJets * sequence)
+    #     elif type == 'Calo' and reco:
+    #         process.kt6CaloJets = kt6CaloJets
+    #         process.kt6CaloJets.doRhoFastjet = True
+    #         process.kt6CaloJets.Ghost_EtaMax = Defaults.kt6CaloJetParameters.Ghost_EtaMax.value()
+    #         process.kt6CaloJets.Rho_EtaMax   = Defaults.kt6CaloJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6CaloJets * sequence)
+    #     elif type == 'PFchs':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
+    #     elif type == 'PFHLT':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
+    #     elif type == 'PFchsHLT':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
+    #     elif type == 'PF':
+    #         process.kt6PFJets = kt6PFJets
+    #         process.kt6PFJets.doRhoFastjet = True
+    #         process.kt6PFJets.Ghost_EtaMax = Defaults.kt6PFJetParameters.Ghost_EtaMax.value()
+    #         process.kt6PFJets.Rho_EtaMax   = Defaults.kt6PFJetParameters.Rho_EtaMax
+    #         sequence = cms.Sequence(process.kt6PFJets * sequence)
 
     ## reconstruct jets
     if type == 'JPT':
@@ -373,8 +378,9 @@ def addAlgorithm(process, alg_size_type_corr, Defaults, reco, doProducer):
         process.load('Configuration.StandardSequences.MagneticField_cff')
         (recLabel, recJets) = recJetsDict[alg_size_type]
         if correctl1 or correctl2l3:
-            corrJets.src = recLabel
-            jetPtEta.src = corrLabel
+            # corrJets.src = recLabel
+            # jetPtEta.src = corrLabel
+            jetPtEta.src = recLabel
         else:
             jetPtEta.src = recLabel
         if correctl1:
