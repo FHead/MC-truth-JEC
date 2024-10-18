@@ -574,21 +574,21 @@ int main(int argc,char**argv)
          chain->GetEntry(ievt);
 
          int iIT = itIndex(JRAEvt->bxns);
-         int npu = sumEOOT(JRAEvt->npus,iIT)+JRAEvt->npus->at(iIT)+sumLOOT(JRAEvt->npus,iIT);
-         int eootnpu = (int)sumEOOT(JRAEvt->npus,iIT);
-         int itnpu = JRAEvt->npus->at(iIT);
-         int lootnpu = (int)sumLOOT(JRAEvt->npus,iIT);
+         int npu = 0; // sumEOOT(JRAEvt->npus,iIT)+JRAEvt->npus->at(iIT)+sumLOOT(JRAEvt->npus,iIT);
+         int eootnpu = 0; // (int)sumEOOT(JRAEvt->npus,iIT);
+         int itnpu = 0; // JRAEvt->npus->at(iIT);
+         int lootnpu = 0; // (int)sumLOOT(JRAEvt->npus,iIT);
          double sumpt = JRAEvt->sumpt_lowpt->at(1);
          float pthat = JRAEvt->pthat;
          float evt_fill = true;
          if (printnpu) cout<<" ievt = "<<ievt<<"\tnpu = "<<npu<<endl;
          if (npu<min_npu) min_npu = npu;
 
-         if (!pileup_cut(itlow,ithigh,earlyootlow,earlyoothigh,lateootlow,lateoothigh,
-                         totalootlow,totaloothigh,totallow,totalhigh,JRAEvt->npus,JRAEvt->bxns)) {
-            cout << "WARNING::Failed the pileup cut." << endl << "Skipping this event." << endl;
-            continue;
-         }
+         // if (!pileup_cut(itlow,ithigh,earlyootlow,earlyoothigh,lateootlow,lateoothigh,
+         //                 totalootlow,totaloothigh,totallow,totalhigh,JRAEvt->npus,JRAEvt->bxns)) {
+         //    cout << "WARNING::Failed the pileup cut." << endl << "Skipping this event." << endl;
+         //    continue;
+         // }
          if (dphimin>0 && abs(JRAEvt->jtphi->at(0)-JRAEvt->jtphi->at(1))<dphimin) continue;
          if (pthatmin>0.0 && pthat<pthatmin) {
             if(verbose) cout << "WARNING::The pthat of this event is less than the minimum pthat!" << endl;
@@ -668,10 +668,10 @@ int main(int argc,char**argv)
             if(useweight) weight = JRAEvt->weight;
             if(!(xsection>0.0) && !useweight) weight = 1.0;
             if(weightHist!=nullptr) weight *= weightHist->GetBinContent(weightHist->FindBin(ptgen,eta));
-            if(!MCPUReWeighting.IsNull() && !DataPUReWeighting.IsNull()) {
-               double LumiWeight = LumiWeights_.weight(JRAEvt->tnpus->at(iIT));
-               weight *= LumiWeight;
-            }
+            // if(!MCPUReWeighting.IsNull() && !DataPUReWeighting.IsNull()) {
+            //    double LumiWeight = LumiWeights_.weight(JRAEvt->tnpus->at(iIT));
+            //    weight *= LumiWeight;
+            // }
             if(pThatReweight!=-9999) weight*=pow(pthat/15.,pThatReweight);
 
 
@@ -714,7 +714,7 @@ int main(int argc,char**argv)
                RespVsEtaVsPtProfile->Fill(ptgen,eta,relrsp,weight);
                RespVsPtProfile->Fill(ptgen,relrsp,weight);
                EtaVsPt->Fill(eta, log10(pt*scale),weight);
-               TPUDistribution->Fill(JRAEvt->tnpus->at(iIT),weight);
+               // TPUDistribution->Fill(JRAEvt->tnpus->at(iIT),weight);
             }
 
             j = getBin(ptgen,vpt,NPtBins);
@@ -736,9 +736,9 @@ int main(int argc,char**argv)
                      else
                         coord[2] = rho_hlt;
                      */
-                     coord[2] = sumEOOT(JRAEvt->npus,iIT);
-                     coord[3] = JRAEvt->npus->at(iIT);
-                     coord[4] = sumLOOT(JRAEvt->npus,iIT);
+                     // coord[2] = sumEOOT(JRAEvt->npus,iIT);
+                     // coord[3] = JRAEvt->npus->at(iIT);
+                     // coord[4] = sumLOOT(JRAEvt->npus,iIT);
                      RespVsPileup->Fill(coord,relrsp);
                   
                      if(!jetInfo.isHLT())
@@ -766,19 +766,19 @@ int main(int argc,char**argv)
                         coord[2] = rho_hlt;
                      */
                      coord[2] = 5;
-                     coord[3] = JRAEvt->npus->at(iIT);
-                     coord[4] = sumLOOT(JRAEvt->npus,iIT);
+                     // coord[3] = JRAEvt->npus->at(iIT);
+                     // coord[4] = sumLOOT(JRAEvt->npus,iIT);
                      double resp_EOOT = RespVsPileup->GetBinContent(RespVsPileup->FindBin(coord));
                      double eresp_EOOT = RespVsPileup->GetBinError(RespVsPileup->FindBin(coord));
 
-                     coord[2] = sumEOOT(JRAEvt->npus,iIT);
+                     // coord[2] = sumEOOT(JRAEvt->npus,iIT);
                      coord[3] = 5;
-                     coord[4] = sumLOOT(JRAEvt->npus,iIT);
+                     // coord[4] = sumLOOT(JRAEvt->npus,iIT);
                      double resp_IT   = RespVsPileup->GetBinContent(RespVsPileup->FindBin(coord));
                      double eresp_IT = RespVsPileup->GetBinError(RespVsPileup->FindBin(coord));
 
-                     coord[2] = sumEOOT(JRAEvt->npus,iIT);
-                     coord[3] = JRAEvt->npus->at(iIT);
+                     // coord[2] = sumEOOT(JRAEvt->npus,iIT);
+                     // coord[3] = JRAEvt->npus->at(iIT);
                      coord[4] = 5;
                      double resp_LOOT = RespVsPileup->GetBinContent(RespVsPileup->FindBin(coord));
                      double eresp_LOOT = RespVsPileup->GetBinError(RespVsPileup->FindBin(coord));
