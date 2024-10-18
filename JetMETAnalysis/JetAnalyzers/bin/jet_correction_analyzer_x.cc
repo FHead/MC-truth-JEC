@@ -578,7 +578,7 @@ int main(int argc,char**argv)
          int eootnpu = 0; // (int)sumEOOT(JRAEvt->npus,iIT);
          int itnpu = 0; // JRAEvt->npus->at(iIT);
          int lootnpu = 0; // (int)sumLOOT(JRAEvt->npus,iIT);
-         double sumpt = JRAEvt->sumpt_lowpt->at(1);
+         double sumpt = // JRAEvt->sumpt_lowpt->at(1);
          float pthat = JRAEvt->pthat;
          float evt_fill = true;
          if (printnpu) cout<<" ievt = "<<ievt<<"\tnpu = "<<npu<<endl;
@@ -747,9 +747,9 @@ int main(int argc,char**argv)
                         RespVsRho->Fill(ptgen,eta,rho_hlt,relrsp);
 
                      coord2[0] = eta;
-                     coord2[1] = sumEOOT(JRAEvt->npus,iIT);
-                     coord2[2] = JRAEvt->npus->at(iIT);
-                     coord2[3] = sumLOOT(JRAEvt->npus,iIT);
+                     // coord2[1] = sumEOOT(JRAEvt->npus,iIT);
+                     // coord2[2] = JRAEvt->npus->at(iIT);
+                     // coord2[3] = sumLOOT(JRAEvt->npus,iIT);
                      if(!jetInfo.isHLT())
                         RhoVsPileupVsEta->Fill(coord2,rho);
                      else
