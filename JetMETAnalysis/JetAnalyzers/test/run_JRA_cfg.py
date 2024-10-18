@@ -22,8 +22,8 @@ if doProducer:
 # Size options: integers 1-10
 # Jet type options: calo, pf, pfchs, puppi
 # Correction levels: '' (blank), l1, l2, l3, l2l3, l1l2l3
-algsizetype = {'ak':[4]}
-jettype = ['pf','calo']
+algsizetype = {'ak':[2, 3, 4, 5, 6, 8]}
+jettype = ['pf']
 corrs = ['']
 
 algorithms = []
@@ -76,8 +76,8 @@ try:
 except ImportError:
     print("Couldn't open the external list of files from DAS. If you just checkout out the JetResponseAnalyzer package you will need to make this file yourself. Currently Falling back to opening the list hard-coded in run_JRA_cfg.py. This is not a bad action as long as it is what you intended to have happen.")
     inputFiles = cms.untracked.vstring(
-            '/store/user/katatar/run3/run3_pbpb22_privateMC_QCDDijet15_pythia8_RECO//CRAB_UserFiles//crab_run3_pbpb22_privateMC_QCDDijet15_pythia8_RECO_userInput//220820_220735/0000//step3_RECO_1.root'
-        )
+            'root://cms-xrd-global//store/user/uacharya/phys_heavyions/2024ppref_hiforest/Forest/QCD_pThat-15_Dijet_TuneCP5_pp_13p6TeV_pythia8/uacharya-pp_ref_lowpileup_simu_Raw_files_afterGen-08145987e1ee077a94132ca641d0f98f/USER/QCD_pThat-15_Dijet_TuneCP5_pp_13p6TeV_pythia8/pp_ref_lowpileup_simu_Raw_files_Reco/241016_210630/0000/minbias__lowPileUp_RECO_1.root'
+    )
     process.source = cms.Source("PoolSource", fileNames = inputFiles )
 
 
