@@ -351,7 +351,7 @@ int main(int argc,char**argv)
       TH1F *RelContributions[NPtBins];
       TProfile *rhoVsRhoHLT(nullptr);
       TProfile *npvVsRhoHLT(nullptr);
-      TH1F *TPUDistribution(nullptr);
+      // TH1F *TPUDistribution(nullptr);
       TProfile *DPtVsNPU[3];
       TProfile *DPtVsPtGen[3];
       TProfile *RespRatioVsPtGen[3];
@@ -559,7 +559,7 @@ int main(int argc,char**argv)
             Error2ForPtGen[i] = new TProfile(name,name,NPtBins,vpt);
             //Error2ForPtGen[i]->SetDirectory(0);
          }//for(int i=0; i<3; i++)
-         TPUDistribution = new TH1F("TPUDistribution","TPUDistribution",1000,0,100);
+         // TPUDistribution = new TH1F("TPUDistribution","TPUDistribution",1000,0,100);
       }
 
       //
