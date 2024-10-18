@@ -20,6 +20,7 @@ JetResponseAnalyzerProducer::JetResponseAnalyzerProducer(const edm::ParameterSet
   , srcRho_        (iConfig.getParameter<edm::InputTag>                 ("srcRho"))
   , srcRhoHLT_     (iConfig.getParameter<edm::InputTag>              ("srcRhoHLT"))
   , srcVtx_        (iConfig.getParameter<edm::InputTag>                 ("srcVtx"))
+  // , correctorToken_(consumes<reco::JetCorrector>(iConfig.getParameter<edm::InputTag>("corrector")))
   , jecLabel_      (iConfig.getParameter<std::string>                 ("jecLabel"))
   , doComposition_ (iConfig.getParameter<bool>                   ("doComposition"))
   , doFlavor_      (iConfig.getParameter<bool>                        ("doFlavor"))
@@ -32,7 +33,7 @@ JetResponseAnalyzerProducer::JetResponseAnalyzerProducer(const edm::ParameterSet
   , deltaRPartonMax_(0.0)
   , doBalancing_(false)
   , getFlavorFromMap_(false)
-  , jetCorrector_(0)
+  // , jetCorrector_(0)
 {
   if (iConfig.exists("deltaRMax")) {
     doBalancing_=false;
@@ -118,7 +119,10 @@ void JetResponseAnalyzerProducer::produce(edm::Event& iEvent,
   edm::Handle<reco::VertexCollection>            vtx;
 
   // JET CORRECTOR
-  jetCorrector_ = (jecLabel_.empty()) ? 0 : JetCorrector::getJetCorrector(jecLabel_,iSetup);
+  // jetCorrector_ = (jecLabel_.empty()) ? 0 : JetCorrector::getJetCorrector(jecLabel_,iSetup);
+  // edm::Handle<reco::JetCorrector> h_corrector;
+  // iEvent.getByToken(correctorToken_, h_corrector);
+  // jetCorrector_ = &(*h_corrector);
   
   // GENERATOR INFORMATION
   JRAEvt_->pthat  = 0.0;
@@ -272,9 +276,10 @@ void JetResponseAnalyzerProducer::produce(edm::Event& iEvent,
         JRAEvt_->jtarea->at(JRAEvt_->nref) = jet.castTo<reco::PFJetRef>()->jetArea();
      }
 
+     /*
      if (0!=jetCorrector_) {
         if (!jetCorrector_->vectorialCorrection()) {
-           if (jetCorrector_->eventRequired()||isJPTJet_) {
+           if (jetCorrector_->refRequired()||isJPTJet_) {
               if (isCaloJet_) {
                  reco::CaloJetRef caloJetRef;
                  caloJetRef=jet.castTo<reco::CaloJetRef>();
@@ -296,6 +301,7 @@ void JetResponseAnalyzerProducer::produce(edm::Event& iEvent,
            }
         }
      }
+   */
 
      if (doComposition_) {
 

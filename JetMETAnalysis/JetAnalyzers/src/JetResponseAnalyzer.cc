@@ -43,7 +43,7 @@ JetResponseAnalyzer::JetResponseAnalyzer(const edm::ParameterSet& iConfig)
   , deltaRPartonMax_(0.0)
   , doBalancing_(false)
   , getFlavorFromMap_(false)
-  , jetCorrector_(0)
+  // , jetCorrector_(0)
 {
    // srcGenParticles_ = iConfig.getParameter<edm::InputTag>("srcGenParticles");
 
@@ -179,7 +179,7 @@ void JetResponseAnalyzer::analyze(const edm::Event& iEvent,
   edm::Handle<vector<reco::GenParticle> >        genParticles;
 
   // Jet CORRECTOR
-  jetCorrector_ = (jecLabel_.empty()) ? 0 : JetCorrector::getJetCorrector(jecLabel_,iSetup);
+  // jetCorrector_ = (jecLabel_.empty()) ? 0 : JetCorrector::getJetCorrector(jecLabel_,iSetup);
 
   // GENERATOR INFORMATION
   JRAEvt_->pthat  = 0.0;
@@ -429,6 +429,7 @@ void JetResponseAnalyzer::analyze(const edm::Event& iEvent,
         JRAEvt_->jtarea->at(JRAEvt_->nref) = jet.castTo<reco::PFJetRef>()->jetArea();
      }
 
+     /*
      if (0!=jetCorrector_) {
         if (!jetCorrector_->vectorialCorrection()) {
            if (jetCorrector_->eventRequired()||isJPTJet_) {
@@ -457,6 +458,7 @@ void JetResponseAnalyzer::analyze(const edm::Event& iEvent,
            }
         }
      }
+     */
      
      if (doComposition_) {
         

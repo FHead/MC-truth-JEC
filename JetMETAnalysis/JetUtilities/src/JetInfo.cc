@@ -358,7 +358,7 @@ TString JetInfo::get_detector_abbreviation(TString dn) {
   }
   else {
     cout << "ERROR::get_detector_abbreviation The number of words in the detector name is less than 1." << endl;
-    assert(words>0);
+    assert(words != nullptr);
   }
   words->Delete();
   delete words;
