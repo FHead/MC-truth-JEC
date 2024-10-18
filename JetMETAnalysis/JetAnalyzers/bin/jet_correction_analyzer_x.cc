@@ -578,7 +578,7 @@ int main(int argc,char**argv)
          int eootnpu = 0; // (int)sumEOOT(JRAEvt->npus,iIT);
          int itnpu = 0; // JRAEvt->npus->at(iIT);
          int lootnpu = 0; // (int)sumLOOT(JRAEvt->npus,iIT);
-         double sumpt = // JRAEvt->sumpt_lowpt->at(1);
+         double sumpt = 0; // JRAEvt->sumpt_lowpt->at(1);
          float pthat = JRAEvt->pthat;
          float evt_fill = true;
          if (printnpu) cout<<" ievt = "<<ievt<<"\tnpu = "<<npu<<endl;
